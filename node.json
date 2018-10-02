@@ -1,5 +1,5 @@
 {
-    "name": "Photobooth",
+    "name": "Photo Booth",
     "permissions": {
         "gpio": "Needs GPIO access",
         "network": "Uploading of photos"
