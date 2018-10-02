@@ -26,6 +26,10 @@
             "type": "duration",
             "hint": "How long should this item be displayed on screen. For videos, use their duration",
             "default": 5
+        }],
+        "default": [{
+            "file": "empty.png",
+            "duration": 5
         }]
     }, {
         "title": "Photobooth options",
