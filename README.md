@@ -1,5 +1,7 @@
 # A Raspberry Pi powered Photo Booth
 
+[![Import](https://cdn.infobeamer.com/s/img/import.png)](https://info-beamer.com/use?url=https://github.com/info-beamer/package-photo-booth)
+
 This package uses the
 [Raspberry Camera Module](https://www.raspberrypi.org/products/camera-module-v2/)
 to capture four pictures with a visible countdown. Once captured, all
@@ -28,5 +30,7 @@ file as a response. This image is then added on top of the four photos. This
 allows you to augment the output - for example by overlaying a QR code
 where the user can download their photos.
 
-This package includes an example server in `server.py` that shows how this
-works. You might want to use a secret url for handling upload requests.
+This package includes an example server in
+[server.py](https://github.com/info-beamer/package-photo-booth/blob/master/server.py)
+that shows how this works. You might want to use a secret url for
+handling upload requests.
