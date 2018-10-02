@@ -1,0 +1,6 @@
+{
+    "name": "Photo Booth",
+    "author": "Florian Wesch <fw@info-beamer.com>",
+    "desc": "A Raspberry Pi powered Photo Booth",
+    "lifecycle": "beta"
+}

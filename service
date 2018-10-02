@@ -1,0 +1,62 @@
+#!/usr/bin/python
+import subprocess, time, os, requests, traceback
+from hosted import device, node, config
+
+config.restart_on_update()
+
+def photo_mode():
+    node.send('/photomode:')
+    width, height = device.screen_resolution
+
+    for pic_num in range(1, 5):
+        print("taking picture %d of 4" % pic_num)
+        countdown = config['countdown_%d' % pic_num]
+        target = config.order[pic_num-1]
+        capture = subprocess.Popen([
+            "raspistill",
+            "-o", "picture%d.jpg" % target,
+            "-p", "0,0,%d,%d" % (width, height),
+            "-t", str(countdown * 1000), # timeout in ms
+            "-fp", # fullscreen preview
+            "-w", str(width/2),
+            "-h", str(height/2),
+        ])
+        node.send('/snap:%d,%d' % (pic_num, countdown))
+        capture.wait()
+
+    node.send('/collage:')
+    if config.upload_url:
+        try:
+            r = requests.post(
+                url = config.upload_url,
+                files = {
+                    'pic1': open('picture1.jpg', 'rb'),
+                    'pic2': open('picture2.jpg', 'rb'),
+                    'pic3': open('picture3.jpg', 'rb'),
+                    'pic4': open('picture4.jpg', 'rb'),
+                },
+                stream = True,
+            )
+            r.raise_for_status()
+            if r.headers['content-type'] != "image/png":
+                raise Exception("Not a PNG")
+            node.write_file('dynamic.png', r.raw.read())
+        except Exception as err:
+            traceback.print_exc()
+
+    time.sleep(config.collage_time)
+    for pic_num in range(1, 5):
+        os.unlink("picture%d.jpg" % pic_num)
+    if os.path.exists('dynamic.png'):
+        os.unlink("dynamic.png")
+    node.send('/loop:')
+
+def main():
+    node.send('/loop:')
+    device.gpio.monitor(config.pin)
+    for pin, state in device.gpio.poll_forever():
+        if state:
+            photo_mode()
+
+if __name__ == "__main__":
+    main()
