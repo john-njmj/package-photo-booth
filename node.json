@@ -140,7 +140,7 @@
         "ui_width": 3,
         "name": "collage_time",
         "type": "duration",
-        "default": "10"
+        "default": 10
     }, {
         "title": "Collage Upload",
         "ui_width": 6,
