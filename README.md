@@ -12,7 +12,7 @@ return an additional transparent PNG file that will overlay the four photos.
 The capture sequence is triggered by GPIO. So you can wire it to a button or other
 hardware.
 
-A playlist of videos and images is played while the device is idle.
+A playlist of videos and images is constantly looped while the device is idle.
 
 ## Hardware setup
 
@@ -32,5 +32,5 @@ where the user can download their photos.
 
 This package includes an example server in
 [server.py](https://github.com/info-beamer/package-photo-booth/blob/master/server.py)
-that shows how this works. You might want to use a secret url for
-handling upload requests.
+that shows how this works. You might want to use a secret url (instead of `/upload`)
+and HTTPS for handling upload requests.
