@@ -53,8 +53,9 @@ def photo_mode():
 
 def main():
     node.send('/loop:')
-    device.gpio.monitor(config.pin)
-    for pin, state in device.gpio.poll_forever():
+    pin, inverted = config.pin
+    device.gpio.monitor(pin, invert=inverted)
+    for _, state in device.gpio.poll_forever():
         if state:
             photo_mode()
 

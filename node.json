@@ -40,13 +40,19 @@
         "name": "pin",
         "type": "select",
         "options": [
-            [15,  "15"],
-            [17,  "17"],
-            [18,  "18"],
-            [23,  "23"],
-            [24,  "24"]
+            [[15, false], "15"],
+            [[17, false], "17"],
+            [[18, false], "18"],
+            [[23, false], "23"],
+            [[24, false], "24"],
+
+            [[15, true], "15 (inverted)"],
+            [[17, true], "17 (inverted)"],
+            [[18, true], "18 (inverted)"],
+            [[23, true], "23 (inverted)"],
+            [[24, true], "24 (inverted)"]
         ],
-        "default": 18
+        "default": [18, false]
     },  {
         "title": "Snapshot order",
         "ui_width": 3,
