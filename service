@@ -74,6 +74,6 @@ def run_in_thread(fn):
             
 if __name__ == "__main__":
     node.send('/loop:')
-    run_in_tread(monitor_gpio)
+    run_in_thread(monitor_gpio)
     
     while 1: time.sleep(1000)
