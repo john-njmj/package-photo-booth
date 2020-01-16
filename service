@@ -51,7 +51,7 @@ def photo_mode():
         os.unlink("dynamic.png")
     node.send('/loop:')
 
-def main():
+def monitor_gpio():
     node.send('/loop:')
     pin, inverted = config.pin
     device.gpio.monitor(pin, invert=inverted)
@@ -60,4 +60,7 @@ def main():
             photo_mode()
 
 if __name__ == "__main__":
-    main()
+    node.send('/loop:')
+    run_in_tread(monitor_gpio)
+    
+    while 1: time.sleep(1000)
