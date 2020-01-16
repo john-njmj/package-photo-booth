@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import subprocess, time, os, requests, traceback, threading, sys
+import subprocess, time, os, requests, traceback, threading, sys, json
 from hosted import device, node, config
 from select import select
 from evdev import ecodes, InputDevice, list_devices
