@@ -71,31 +71,31 @@ def update_devices():
 def device_event(event):
     print >>sys.stderr, event
 
-'    if event.code in ecodes.BTN:
-'        btn = ecodes.BTN[event.code]
-'        if not isinstance(btn, list):
-'            btn = [btn]
-'        for name in btn:
-'            node.send('/event/pad:%s' % json.dumps(dict(
-'                key = name.replace("BTN_", "pad_").lower(),
-'                action = {
-'                    KeyEvent.key_up: "up",
-'                    KeyEvent.key_down: "down",
-'                }[event.value],
-'            )))
+#    if event.code in ecodes.BTN:
+#        btn = ecodes.BTN[event.code]
+#        if not isinstance(btn, list):
+#            btn = [btn]
+#        for name in btn:
+#            node.send('/event/pad:%s' % json.dumps(dict(
+#                key = name.replace("BTN_", "pad_").lower(),
+#                action = {
+#                    KeyEvent.key_up: "up",
+#                    KeyEvent.key_down: "down",
+#                }[event.value],
+#            )))
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
         if KeyEvent.Key_down:
             if event.value == "enter" or event.value == "Kpenter":
                print >>sys.stderr, "Enter Key"
-'        node.send('/event/keyboard:%s' % json.dumps(dict(
-'            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
-'            action = {
-'                KeyEvent.key_up: "up",
-'                KeyEvent.key_down: "down",
-'                KeyEvent.key_hold: "hold",
-'            }[event.value],
-'        )))
+#        node.send('/event/keyboard:%s' % json.dumps(dict(
+#            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
+#            action = {
+#                KeyEvent.key_up: "up",
+#                KeyEvent.key_down: "down",
+#                KeyEvent.key_hold: "hold",
+#            }[event.value],
+#        )))
 
 def monitor_input():
     update_devices()
