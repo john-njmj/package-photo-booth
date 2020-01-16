@@ -1,7 +1,7 @@
 {
-    "name": "Photo Booth",
-    "author": "Florian Wesch <fw@info-beamer.com>",
+    "name": "Photo Booth STE",
+    "author": "Florian Wesch <fw@info-beamer.com> & John ",
     "desc": "A Raspberry Pi powered Photo Booth",
     "lifecycle": "beta",
-    "repository": "https://github.com/info-beamer/package-photo-booth"
+    "repository": "https://github.com/john-njmj/package-photo-booth"
 }
