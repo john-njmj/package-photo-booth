@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import subprocess, time, os, requests, traceback, threading
 from hosted import device, node, config
+from select import select
+from evdev import ecodes, InputDevice, list_devices
+from evdev.events import KeyEvent
 
 config.restart_on_update()
 
@@ -50,6 +53,43 @@ def photo_mode():
     if os.path.exists('dynamic.png'):
         os.unlink("dynamic.png")
     node.send('/loop:')
+    
+def device_event(event):
+    print >>sys.stderr, event
+
+    if event.code in ecodes.BTN:
+        btn = ecodes.BTN[event.code]
+        if not isinstance(btn, list):
+            btn = [btn]
+        for name in btn:
+            node.send('/event/pad:%s' % json.dumps(dict(
+                key = name.replace("BTN_", "pad_").lower(),
+                action = {
+                    KeyEvent.key_up: "up",
+                    KeyEvent.key_down: "down",
+                }[event.value],
+            )))
+    
+    if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
+        node.send('/event/keyboard:%s' % json.dumps(dict(
+            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
+            action = {
+                KeyEvent.key_up: "up",
+                KeyEvent.key_down: "down",
+                KeyEvent.key_hold: "hold",
+            }[event.value],
+        )))
+
+def monitor_input():
+    update_devices()
+    r, w, e = select(devices.values(), [], [], 1)
+    for event in r:
+        try:
+            for ev in event.read():
+                device_event(ev)
+        except IOError:
+            # device disconnected
+            pass
 
 def monitor_gpio():
     node.send('/loop:')
@@ -75,5 +115,6 @@ def run_in_thread(fn):
 if __name__ == "__main__":
     node.send('/loop:')
     run_in_thread(monitor_gpio)
+    run_in_thread(monitor_input)
     
     while 1: time.sleep(1000)
