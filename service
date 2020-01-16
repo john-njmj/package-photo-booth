@@ -53,6 +53,20 @@ def photo_mode():
     if os.path.exists('dynamic.png'):
         os.unlink("dynamic.png")
     node.send('/loop:')
+
+devices = {}
+def update_devices():
+    new = set(list_devices("/dev/input/"))
+    old = set(devices.keys())
+
+    for device_name in new - old:
+        devices[device_name] = InputDevice(device_name)
+
+    for device_name in old - new:
+        del devices[device_name]
+
+    
+    
     
 def device_event(event):
     print >>sys.stderr, event
