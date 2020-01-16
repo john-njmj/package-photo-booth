@@ -59,6 +59,19 @@ def monitor_gpio():
         if state:
             photo_mode()
 
+def run_in_thread(fn):
+    def wrap():
+        try:
+            while 1:
+                fn()
+        except Exception:
+            traceback.print_exc()
+            os._exit(1)
+    thread = threading.Thread(target=wrap)
+    thread.daemon = True
+    thread.start()
+            
+            
 if __name__ == "__main__":
     node.send('/loop:')
     run_in_tread(monitor_gpio)
