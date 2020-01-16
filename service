@@ -85,7 +85,7 @@ def device_event(event):
 #            )))
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
-        if KeyEvent.Key_down:
+#        if KeyEvent.Key_down:
             if event.value == "enter" or event.value == "Kpenter":
                print >>sys.stderr, "Enter Key"
 #        node.send('/event/keyboard:%s' % json.dumps(dict(
