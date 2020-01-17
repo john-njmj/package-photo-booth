@@ -97,7 +97,7 @@ def device_event(event):
                 KeyEvent.key_hold: "hold",
             }[event.value]
             
-        if event.code in num_key and event.value == key_down:
+            if event.code in num_key and event.value == key_down:
                print >>sys.stderr, "Toets gevonden"
 #        node.send('/event/keyboard:%s' % json.dumps(dict(
 #            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
