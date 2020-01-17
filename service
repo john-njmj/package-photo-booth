@@ -6,6 +6,8 @@ from evdev import ecodes, InputDevice, list_devices
 from evdev.events import KeyEvent
 
 config.restart_on_update()
+num_key = {0:"KEY_KP0", 1:"KEY_KP1", 2:"KEY_KP2"}
+key_down = 1
 
 def photo_mode():
     node.send('/photomode:')
@@ -95,9 +97,8 @@ def device_event(event):
                 KeyEvent.key_hold: "hold",
             }[event.value]
             
-#        if KeyEvent.Key_down:
-            if event.value == "enter" or event.value == "Kpenter":
-               print >>sys.stderr, "Enter Key"
+        if event.code in num_key and event.value == key_down:
+               print >>sys.stderr, "Toets gevonden"
 #        node.send('/event/keyboard:%s' % json.dumps(dict(
 #            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
 #            action = {
