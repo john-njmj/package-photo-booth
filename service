@@ -85,6 +85,7 @@ def device_event(event):
 #            )))
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
+            print >>sys.stderr, KeyEvent
 #        if KeyEvent.Key_down:
             if event.value == "enter" or event.value == "Kpenter":
                print >>sys.stderr, "Enter Key"
@@ -109,7 +110,7 @@ def monitor_input():
             pass
 
 def monitor_gpio():
-    node.send('/loop:')
+#    node.send('/loop:')
     pin, inverted = config.pin
     device.gpio.monitor(pin, invert=inverted)
     for _, state in device.gpio.poll_forever():
