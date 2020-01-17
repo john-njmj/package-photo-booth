@@ -86,9 +86,15 @@ def device_event(event):
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
             print >>sys.stderr, KeyEvent
-            print >>sys.stderr, ecodes.KEY 
+            print >>sys.stderr, event.type 
             print >>sys.stderr, event.code
+            print >>sys.stderr, ecodes.KEY[event.code]
             print >>sys.stderr, event.value
+            print >>sys.stderr, action = {
+                KeyEvent.key_up: "up",
+                KeyEvent.key_down: "down",
+                KeyEvent.key_hold: "hold",
+            }[event.value]
             
 #        if KeyEvent.Key_down:
             if event.value == "enter" or event.value == "Kpenter":
