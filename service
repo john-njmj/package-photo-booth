@@ -90,8 +90,7 @@ def device_event(event):
             print >>sys.stderr, event.code
             print >>sys.stderr, ecodes.KEY[event.code]
             print >>sys.stderr, event.value
-            print >>sys.stderr, action = {
-                KeyEvent.key_up: "up",
+            print >>sys.stderr, {KeyEvent.key_up: "up",
                 KeyEvent.key_down: "down",
                 KeyEvent.key_hold: "hold",
             }[event.value]
