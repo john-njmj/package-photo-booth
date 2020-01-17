@@ -20,7 +20,7 @@ def photo_mode():
         capture = subprocess.Popen([
             "raspistill",
             "-o", "picture%d.jpg" % target,
-            "-p", "0,0,%d,%d" % (width, height),
+            "-p", "0,0,%d,%d" % (width/2, height/2),
             "-t", str(countdown * 1000), # timeout in ms
             "-fp", # fullscreen preview
             "-w", str(width/2),
@@ -97,7 +97,7 @@ def device_event(event):
                 KeyEvent.key_hold: "hold",
             }[event.value]
             
-            if event.code in num_key and event.value == key_down:
+            if ecodes.KEY[event.code] in num_key and event.value == key_down:
                print >>sys.stderr, "Toets gevonden"
 #        node.send('/event/keyboard:%s' % json.dumps(dict(
 #            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
