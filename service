@@ -71,7 +71,7 @@ def update_devices():
     
     
 def device_event(event):
-    print >>sys.stderr, event
+#    print >>sys.stderr, event
 
 #    if event.code in ecodes.BTN:
 #        btn = ecodes.BTN[event.code]
@@ -87,15 +87,11 @@ def device_event(event):
 #            )))
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
-            print >>sys.stderr, KeyEvent
-            print >>sys.stderr, event.type 
-            print >>sys.stderr, event.code
+
             print >>sys.stderr, ecodes.KEY[event.code]
             print >>sys.stderr, event.value
-            print >>sys.stderr, {KeyEvent.key_up: "up",
-                KeyEvent.key_down: "down",
-                KeyEvent.key_hold: "hold",
-            }[event.value]
+            print >>sys.stderr, num_key
+            print >>sys.stderr, key_down
             
             if ecodes.KEY[event.code] in num_key and event.value == key_down:
                print >>sys.stderr, "Toets gevonden"
