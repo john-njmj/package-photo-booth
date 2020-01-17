@@ -86,7 +86,8 @@ def device_event(event):
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
             print >>sys.stderr, KeyEvent
-            print >>sys.stderr, event
+            print >>sys.stderr, ecodes.KEY 
+            print >>sys.stderr, event.code
             print >>sys.stderr, event.value
             
 #        if KeyEvent.Key_down:
