@@ -6,10 +6,10 @@ from evdev import ecodes, InputDevice, list_devices
 from evdev.events import KeyEvent
 
 config.restart_on_update()
-num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
-key_down = 1
-my_key_val = 0 
-key_state = ""
+global num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
+global key_down = 1
+global key_val = 0 
+global key_state = ""
 
 def photo_mode():
     node.send('/photomode:')
@@ -95,10 +95,10 @@ def device_event(event):
                print >>sys.stderr, keyin_val
                #key_time = now 
                key_state = "input"
-               if my_key_val > 99:
-                   my_key_val = my_keyin_val
+               if key_val > 99:
+                   key_val = keyin_val
                else:
-                   my_key_val = (my_key_val *10 ) + keyin_val            
+                   key_val = (key_val *10 ) + keyin_val            
                print >>sys.stderr, "Key " 
                print >>sys.stderr, key_val
                node.send('/renner_nr:%s' % key_val)
