@@ -9,6 +9,7 @@ local overlay = resource.create_colored_texture(0,0,0,0)
 local dynamic
 
 local mode = "loop"
+local ren_nr = 0
 local playlist = {}
 
 util.json_watch("config.json", function(config)
@@ -93,6 +94,10 @@ local function text_center(y, text, size, r,g,b,a)
     return font:write((WIDTH-width)/2, y-size/2, text, size, r,g,b,a)
 end
 
+local function text_renner(y, text, size, r,g,b,a)
+    local width = font:width(text, size)
+    return font:write(0, y-size, text, size, r,g,b,a)
+end
 local countdown, countdown_end, pic_num
 local pictures
 
@@ -120,6 +125,9 @@ util.data_mapper{
     loop = function()
         mode = "loop"
     end;
+    renner_nr = function(info)
+        ren_nr = info
+    end;    
 }
 
 -- Handle loading/unloading of dynamic server response
@@ -140,6 +148,7 @@ function node.render()
     if mode == "loop" then
         gl.clear(0, 0, 0, 1)
         player.tick()
+        text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
     elseif mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
 
@@ -163,6 +172,7 @@ function node.render()
         black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
         white:draw(0, mid-size/2, progress, mid+size/2, 0.2)
         white:draw(WIDTH, mid-size/2, WIDTH-progress, mid+size/2, 0.2)
+        text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
     elseif mode == "collage" then
         local w = WIDTH/2
         local h = HEIGHT/2
