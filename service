@@ -95,7 +95,7 @@ def device_event(event):
                print >>sys.stderr, keyin_val
                #key_time = now 
                key_state = "input"
-               if key_val > "99":
+               if key_val > 99:
                    key_val = keyin_val
                else:
                    key_val = (key_val *10 ) + keyin_val            
