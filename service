@@ -20,7 +20,7 @@ def photo_mode():
         capture = subprocess.Popen([
             "raspistill",
             "-o", "picture%d.jpg" % target,
-            "-p", "0,0,%d,%d" % (width/2, height/2),
+            "-p", "%d,0,%d,%d" % (width/2,width/2, height/2),
             "-t", str(countdown * 1000), # timeout in ms
             "-fp", # fullscreen preview
             "-w", str(width/2),
@@ -91,7 +91,7 @@ def device_event(event):
                keyin_val = int(ecodes.KEY[event.code][-1:])
                print >>sys.stderr, "Keyin " 
                print >>sys.stderr, keyin_val
-               key_time = now 
+               #key_time = now 
                key_state = "input"
                if key_val > "99":
                    key_val = keyin_val
