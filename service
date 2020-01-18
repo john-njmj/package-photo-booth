@@ -6,7 +6,7 @@ from evdev import ecodes, InputDevice, list_devices
 from evdev.events import KeyEvent
 
 config.restart_on_update()
-num_key = {'KEY_KP0','KEY_KP1','KEY_KP2'}
+num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
 key_down = 1
 
 def photo_mode():
@@ -87,23 +87,18 @@ def device_event(event):
 #            )))
     
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
-
-            print >>sys.stderr, ecodes.KEY[event.code]
-            print >>sys.stderr, event.value
-            print >>sys.stderr, num_key
-            print >>sys.stderr, key_down
-            
-            if ecodes.KEY[event.code] in num_key and event.value == key_down:
-               print >>sys.stderr, "Toets gevonden"
-#        node.send('/event/keyboard:%s' % json.dumps(dict(
-#            key = ecodes.KEY[event.code].replace("KEY_", "").lower(),
-#            action = {
-#                KeyEvent.key_up: "up",
-#                KeyEvent.key_down: "down",
-#                KeyEvent.key_hold: "hold",
-#            }[event.value],
-#        )))
-
+        if ecodes.KEY[event.code] in num_key and event.value == key_down:
+               keyin_val = int(right(ecodes.KEY[event.code],1)
+               print >>sys.stderr, "Keyin " , keyin_val
+               key_time = now 
+               key_state = "input"
+               if key_val > "99":
+                   key_val = keyin_val
+               else
+                   key_val = (key_val *10 ) + keyin_val            
+               print >>sys.stderr, "Key " , key_val
+               node.send('/renner_nr:%s'key_val)
+               node.send('/renner_nr_state:%s'key_state)
 def monitor_input():
     update_devices()
     r, w, e = select(devices.values(), [], [], 1)
