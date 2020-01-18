@@ -99,8 +99,8 @@ def device_event(event):
                    key_val = (key_val *10 ) + keyin_val            
                print >>sys.stderr, "Key " 
                print >>sys.stderr, key_val
-               node.send('/renner_nr:%s'key_val)
-               node.send('/renner_nr_state:%s'key_state)
+               node.send('/renner_nr:%s' % key_val)
+               node.send('/renner_nr_state:%s' % key_state)
 def monitor_input():
     update_devices()
     r, w, e = select(devices.values(), [], [], 1)
