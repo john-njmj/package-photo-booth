@@ -6,7 +6,7 @@ from evdev import ecodes, InputDevice, list_devices
 from evdev.events import KeyEvent
 
 config.restart_on_update()
-num_key = {0:'KEY_KP0', 1:'KEY_KP1', 2:'KEY_KP2'}
+num_key = {'KEY_KP0','KEY_KP1','KEY_KP2'}
 key_down = 1
 
 def photo_mode():
