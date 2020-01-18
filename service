@@ -6,13 +6,9 @@ from evdev import ecodes, InputDevice, list_devices
 from evdev.events import KeyEvent
 
 config.restart_on_update()
-global num_key 
 num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
-global key_down
 key_down= 1
-global key_val 
 key_val = 0 
-global key_state
 key_state = ""
 
 def photo_mode():
@@ -91,7 +87,7 @@ def device_event(event):
 #                    KeyEvent.key_down: "down",
 #                }[event.value],
 #            )))
-    
+    global key_val
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
         if ecodes.KEY[event.code] in num_key and event.value == key_down:
                keyin_val = int(ecodes.KEY[event.code][-1:])
