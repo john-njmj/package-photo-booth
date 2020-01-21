@@ -151,7 +151,7 @@ end)
 
 function node.render()
     if mode == "loop" then
-        gl.clear(0, 0, 0, 0)
+        gl.clear(1, 1, 1, .5)
         -- player.tick()
         text_renner(HEIGHT, ren_nr, size, 1,1,1,1)
         text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
