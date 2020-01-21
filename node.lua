@@ -10,6 +10,7 @@ local dynamic
 
 local mode = "loop"
 local ren_nr = "0"
+local ren_nr_state = "none"
 local playlist = {}
 
 util.json_watch("config.json", function(config)
@@ -127,7 +128,11 @@ util.data_mapper{
     end;
     renner_nr = function(info)
         ren_nr = info
-    end;    
+    end;
+    renner_nr_state = function(info)
+        ren_nr_state = info
+    end;
+    
 }
 
 -- Handle loading/unloading of dynamic server response
@@ -147,8 +152,9 @@ end)
 function node.render()
     if mode == "loop" then
         gl.clear(0, 0, 0, 0)
-        player.tick()
+        -- player.tick()
         text_renner(HEIGHT, ren_nr, size, 1,1,1,1)
+        text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
     elseif mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
 
