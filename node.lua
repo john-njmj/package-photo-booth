@@ -129,7 +129,7 @@ util.data_mapper{
     renner_nr = function(info)
         ren_nr = info
     end;
-    renner_nr_state = function(info)
+    state_renner_nr = function(info)
         ren_nr_state = info
     end;
     
@@ -151,8 +151,9 @@ end)
 
 function node.render()
     if mode == "loop" then
-        gl.clear(1, 1, 1, .5)
+        gl.clear(0, 0, 0, 0)
         -- player.tick()
+        local size = math.ceil(HEIGHT/10)
         text_renner(HEIGHT, ren_nr, size, 1,1,1,1)
         text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
     elseif mode == "snap" then
