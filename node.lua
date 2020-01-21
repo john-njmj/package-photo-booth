@@ -160,6 +160,7 @@ function node.render()
         local size = math.ceil(HEIGHT/10)
         local mid = HEIGHT/2
         text_center(mid - size, string.format("Photo %d of 4", pic_num), size, 1,1,1,.5)
+        text_renner(HEIGHT, string.format("%d %d", 10, ren_nr), size, 1,1,1,1)
         if remaining > 0 then
             -- text_center(mid, string.format("%.2f", remaining), size/2, 1,1,1,1)
         else
