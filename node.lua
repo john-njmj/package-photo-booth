@@ -9,7 +9,7 @@ local overlay = resource.create_colored_texture(0,0,0,0)
 local dynamic
 
 local mode = "loop"
-local ren_nr = 0
+local ren_nr = "0"
 local playlist = {}
 
 util.json_watch("config.json", function(config)
@@ -146,21 +146,21 @@ end)
 
 function node.render()
     if mode == "loop" then
-        gl.clear(0, 0, 0, 1)
+        gl.clear(0, 0, 0, 0)
         player.tick()
-        text_renner(HEIGHT, string.format("%d %d", 10, ren_nr), size, 1,1,1,1)
+        text_renner(HEIGHT, ren_nr, size, 1,1,1,1)
     elseif mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
 
         -- Flash effect
         local flash = math.max(0, 1-remaining*5)
-        gl.clear(1, 1, 1, flash)
+        gl.clear(1, 1, 1, 0)
 
         -- Info Text
         local size = math.ceil(HEIGHT/10)
         local mid = HEIGHT/2
         text_center(mid - size, string.format("Photo %d of 4", pic_num), size, 1,1,1,.5)
-        text_renner(HEIGHT, string.format("%d %d", 10, ren_nr), size, 1,1,1,1)
+        text_renner(HEIGHT, ren_nr , size, 1,1,1,1)
         if remaining > 0 then
             -- text_center(mid, string.format("%.2f", remaining), size/2, 1,1,1,1)
         else
