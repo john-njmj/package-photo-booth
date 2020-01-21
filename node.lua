@@ -148,7 +148,7 @@ function node.render()
     if mode == "loop" then
         gl.clear(0, 0, 0, 1)
         player.tick()
-        text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
+        text_renner(HEIGHT, string.format("%d %d", 10, ren_nr), size, 1,1,1,1)
     elseif mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
 
