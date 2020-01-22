@@ -93,7 +93,7 @@ def device_event(event):
                keyin_val = int(ecodes.KEY[event.code][-1:])
                print >>sys.stderr, "Keyin " 
                print >>sys.stderr, keyin_val
-               #key_time = now 
+               key_time = time() 
                key_state = "input"
                if key_val > 99:
                    key_val = keyin_val
@@ -101,8 +101,7 @@ def device_event(event):
                    key_val = (key_val *10 ) + keyin_val            
                print >>sys.stderr, "Key " 
                print >>sys.stderr, key_val
-               node.send('/renner_nr:%s' % key_val)
-#               node.send('/state_renner_nr:%s' % key_state)
+               node.send('/renner_nr:%d,%s' % (key_val,key_state))
 def monitor_input():
     update_devices()
     r, w, e = select(devices.values(), [], [], 1)
