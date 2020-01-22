@@ -127,10 +127,9 @@ util.data_mapper{
         mode = "loop"
     end;
     renner_nr = function(info)
-        ren_nr = info
-    end;
-    state_renner_nr = function(info)
-        ren_nr_state = info
+        local ren_nr_str
+        ren_nr_ste, ren_nr_state = string.match(info, "(.*),(.*)")
+        ren_nr = tonumber(ren_nr_str)
     end;
     
 }
