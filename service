@@ -89,11 +89,13 @@ def device_event(event):
 #            )))
     global key_val
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
+        print >>sys.stderr, "Key " 
+        print >>sys.stderr, key_val
         if ecodes.KEY[event.code] in num_key and event.value == key_down:
                keyin_val = int(ecodes.KEY[event.code][-1:])
                print >>sys.stderr, "Keyin " 
                print >>sys.stderr, keyin_val
-               key_time = time() 
+#               key_time = time() 
                key_state = "input"
                if key_val > 99:
                    key_val = keyin_val
