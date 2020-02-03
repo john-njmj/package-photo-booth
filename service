@@ -7,8 +7,9 @@ from evdev.events import KeyEvent
 
 config.restart_on_update()
 num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
+R_key = 'R'
 key_down= 1
-key_val = 0 
+renner_nr = 0 
 key_state = ""
 
 def photo_mode():
@@ -89,21 +90,20 @@ def device_event(event):
 #            )))
     global key_val
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
-        print >>sys.stderr, "Key " 
-        print >>sys.stderr, key_val
-        if ecodes.KEY[event.code] in num_key and event.value == key_down:
-               keyin_val = int(ecodes.KEY[event.code][-1:])
-               print >>sys.stderr, "Keyin " 
-               print >>sys.stderr, keyin_val
-#               key_time = time() 
-               key_state = "input"
-               if key_val > 99:
-                   key_val = keyin_val
-               else:
-                   key_val = (key_val *10 ) + keyin_val            
-               print >>sys.stderr, "Key " 
-               print >>sys.stderr, key_val
-               node.send('/renner_nr:%d,%s' % (key_val,key_state))
+        print >>sys.stderr, "Key code " 
+        print >>sys.stderr, ecodes.KEY[event.code]
+        if event.value == key_down:
+            key_in = ecodes.KEY[event.code][-1:]
+            if ecodes.KEY[event.code] in num_key and len(renner_nr) <3:
+               renner_nr = renner_nr & key_in
+            elsif ecodes.KEY[event.code] = R_key and len(renner_nr) == 0:
+               renner_nr = key_in
+            elseif ecodes.KEY[event.code] in num_key and len(renner_nr) == 3:
+               renner_nr = key_in
+            elseif ecodes.KEY[event.code] ='ENTER':
+                # compleet renner_nr
+                # take picture
+            node.send('/renner_nr:%S' % (key_val))
 def monitor_input():
     update_devices()
     r, w, e = select(devices.values(), [], [], 1)
