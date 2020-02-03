@@ -104,12 +104,12 @@ def device_event(event):
             elif ecodes.KEY[event.code] in enter_key:
                 # compleet renner_nr
                 if len(renner_nr) < 3:
-                    if renner_nr[1] == 'R':
+                    if renner_nr[1:] == 'R':
                         renner_nr ='00' + renner_nr
-                        renner_nr = 'R' +renner_nr[-2]
+                        renner_nr = 'R' +renner_nr[-2:]
                     else:
                         renner_nr = '000' + renner_nr
-                        renner_nr = renner_nr[-3]
+                        renner_nr = renner_nr[-3:]
                 # take picture
             node.send("/renner_nr:%s" % renner_nr)
 def monitor_input():
