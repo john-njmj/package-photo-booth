@@ -128,7 +128,7 @@ util.data_mapper{
     end;
     renner_nr = function(info)
         ren_nr = info
-        if len(rener_nr) == 3 then
+        if len(ren_nr) == 3 then
            ren_nr_state = "Renner"
         else 
            ren_nr_state = "Input"
@@ -156,7 +156,7 @@ function node.render()
         gl.clear(0, 0, 0, 0)
         -- player.tick()
         local size = math.ceil(HEIGHT/10)
-        text_renner(HEIGHT, ren_nr, size, 1,1,1,1)
+        text_renner(HEIGHT-50, ren_nr, size, 1,1,1,1)
         text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
     elseif mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
