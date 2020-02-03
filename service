@@ -103,7 +103,7 @@ def device_event(event):
             #elif ecodes.KEY[event.code] =='ENTER':
                 # compleet renner_nr
                 # take picture
-            node.send("/renner_nr:%S" % key_val)
+            node.send("/renner_nr:%S" % renner_nr)
 def monitor_input():
     update_devices()
     r, w, e = select(devices.values(), [], [], 1)
