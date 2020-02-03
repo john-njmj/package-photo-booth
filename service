@@ -105,8 +105,8 @@ def device_event(event):
                 # compleet renner_nr
                 if len(renner_nr) < 3:
                     if renner_nr[1:] == 'R':
-                        renner_nr ='00' + renner_nr
-                        renner_nr = 'R' +renner_nr[-2:]
+                        renner_nr ='00' + renner_nr[-2:]
+                        renner_nr = 'R' + renner_nr
                     else:
                         renner_nr = '000' + renner_nr
                         renner_nr = renner_nr[-3:]
