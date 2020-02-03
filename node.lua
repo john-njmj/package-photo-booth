@@ -97,7 +97,7 @@ end
 
 local function text_renner(y, text, size, r,g,b,a)
     local width = font:width(text, size)
-    return font:write(0, y-size, text, size, r,g,b,a)
+    return font:write(100, y-size, text, size, r,g,b,a)
 end
 local countdown, countdown_end, pic_num
 local pictures
@@ -127,9 +127,12 @@ util.data_mapper{
         mode = "loop"
     end;
     renner_nr = function(info)
-        local ren_nr_str
-        ren_nr_ste, ren_nr_state = string.match(info, "(.*),(.*)")
-        ren_nr = tonumber(ren_nr_str)
+        ren_nr = info
+        if len(rener_nr)  = 3 then
+           ren_nr_state = "Renner"
+        else 
+           ren_nr_state = "Input"
+        end
     end;
     
 }
