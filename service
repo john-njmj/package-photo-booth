@@ -7,7 +7,8 @@ from evdev.events import KeyEvent
 
 config.restart_on_update()
 num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
-R_key = 'R'
+enter_key = {'KEY_KPENTER','KEY_ENTER'}
+R_key = 'KEY_R'
 key_down = 1
 renner_nr = "" 
 key_state = ""
@@ -100,8 +101,15 @@ def device_event(event):
                renner_nr = key_in
             elif ecodes.KEY[event.code] in num_key and len(renner_nr) == 3:
                renner_nr = key_in
-            #elif ecodes.KEY[event.code] =='ENTER':
+            elif ecodes.KEY[event.code] in enter_key:
                 # compleet renner_nr
+                if len(renner_nr) < 3:
+                    if renner_nr[1] == 'R':
+                        renner_nr ='00' + renner_nr
+                        renner_nr = 'R' +renner_nr[-2]
+                    else:
+                        renner_nr = '000' + renner_nr
+                        renner_nr = renner_nr[-3]
                 # take picture
             node.send("/renner_nr:%s" % renner_nr)
 def monitor_input():
