@@ -22,7 +22,7 @@ def photo_mode():
         capture = subprocess.Popen([
             "raspistill",
             "-o", "picture%d.jpg" % target,
-            "-p", "%d,0,%d,%d" % (width/2,width/2, height/2),
+            "-p", "%d,0,%d,%d" % (width/2,100, width/2),
             "-t", str(countdown * 1000), # timeout in ms
             "-fp", # fullscreen preview
             "-w", str(width/2),
