@@ -128,6 +128,7 @@ util.data_mapper{
     end;
     renner_nr = function(info)
         ren_nr = info
+        ren_nr_state = "Test"
         if len(ren_nr) == 3 then
            ren_nr_state = "Renner"
         else 
