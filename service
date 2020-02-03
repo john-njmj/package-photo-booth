@@ -96,7 +96,7 @@ def device_event(event):
             key_in = ecodes.KEY[event.code][-1:]
             if ecodes.KEY[event.code] in num_key and len(renner_nr) <3:
                renner_nr = renner_nr & key_in
-            elif ecodes.KEY[event.code] = R_key and len(renner_nr) == 0:
+            elif ecodes.KEY[event.code] == R_key and len(renner_nr) == 0:
                renner_nr = key_in
             elif ecodes.KEY[event.code] in num_key and len(renner_nr) == 3:
                renner_nr = key_in
