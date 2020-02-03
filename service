@@ -100,7 +100,7 @@ def device_event(event):
                renner_nr = key_in
             elif ecodes.KEY[event.code] in num_key and len(renner_nr) == 3:
                renner_nr = key_in
-            elif ecodes.KEY[event.code] ='ENTER':
+            elif ecodes.KEY[event.code] =='ENTER':
                 # compleet renner_nr
                 # take picture
             node.send('/renner_nr:%S' % (key_val))
