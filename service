@@ -88,7 +88,7 @@ def device_event(event):
 #                    KeyEvent.key_down: "down",
 #                }[event.value],
 #            )))
-    global key_val
+    global renner_nr
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
         print >>sys.stderr, "Key code " 
         print >>sys.stderr, ecodes.KEY[event.code]
