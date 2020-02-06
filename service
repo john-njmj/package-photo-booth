@@ -29,7 +29,7 @@ def photo_mode():
             "-fp", # fullscreen preview
             "-w", str(width/2),
             "-h", str(height/2),
-            "-rot90",
+            "-rot 90",
         ])
         node.send('/snap:%d,%d' % (pic_num, countdown))
         capture.wait()
@@ -105,8 +105,8 @@ def device_event(event):
                 # compleet renner_nr
                 if len(renner_nr) < 3:
                     print >>sys.stderr, "Key code " 
-                    print >>sys.stderr, renner_nr[1:1]
-                    if renner_nr[1:1] == 'R':
+                    print >>sys.stderr, renner_nr[1:2]
+                    if renner_nr[1:2] == 'R':
                         renner_nr ='00' + renner_nr[2:]
                         print >>sys.stder, renner_nr
                         renner_nr = 'R' + renner_nr[-2:]
