@@ -8,7 +8,7 @@ local font = resource.load_font "font.ttf"
 local overlay = resource.create_colored_texture(0,0,0,0)
 local dynamic
 
-local mode = "loop"
+local mode = "wait"
 local ren_nr = "0"
 local ren_nr_state = "none"
 local playlist = {}
@@ -195,5 +195,7 @@ function node.render()
         if dynamic then
             dynamic:draw(0, 0, WIDTH, HEIGHT)
         end
+    elseif mode == "wait" then
+        text_center(mid - size, "Wait - Wait Wait", size, 1,1,1,.5)
     end
 end
