@@ -18,15 +18,17 @@ def photo_mode():
     width, height = device.screen_resolution
 
     for pic_num in range(1, 5):
-        print("taking picture %d of 4" % pic_num)
+        print sys.stderr, "taking picture %d of 4" % (pic_num)
         countdown = config['countdown_%d' % pic_num]
         target = config.order[pic_num-1]
-        args =  "raspistill " + "-o " + "picture%d.jpg" % target + "--rot 90" 
-        args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,500, width/2)
-        args = args + "-t " + str(countdown * 1000) # timeout in ms
+        args =  "raspistill "
+        args = args + "-o " + "picture%d.jpg " % target
+        args = args + "--rot 90 " 
+        args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,500, width/2) + " "
+        args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
         args = args + "-fp " # fullscreen preview
-        args = args + "-w " + str(width/2)
-        args = args + "-h " + str(height/2)
+        args = args + "-w " + str(width/2) + " "
+        args = args + "-h " + str(height/2) + " "
         print >>sys.stderr, args
         cmd_args = shlex.split(args)
         print >>sys.stderr, cmd_args
