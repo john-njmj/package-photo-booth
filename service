@@ -29,7 +29,7 @@ def photo_mode():
             "-fp", # fullscreen preview
             "-w", str(width/2),
             "-h", str(height/2),
-            "-rot 90",
+            "-rot90",
         ])
         node.send('/snap:%d,%d' % (pic_num, countdown))
         capture.wait()
@@ -105,7 +105,7 @@ def device_event(event):
             elif ecodes.KEY[event.code] in enter_key:
                 # compleet renner_nr
                 if len(renner_nr) < 3:
-                    if renner_nr[1:] == 'R':
+                    if renner_nr[1:1] == 'R':
                         renner_nr ='00' + renner_nr[2:]
                         renner_nr = 'R' + renner_nr[-2:]
                     else:
