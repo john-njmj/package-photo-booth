@@ -24,11 +24,12 @@ def photo_mode():
         capture = subprocess.Popen([
             "raspistill",
             "-o", "picture%d.jpg" % target,
-            "-p", "%d,0,%d,%d" % (width/2,100, width/2),
+            "-p", "%d,%d,%d,%d" % (width/2,500, width/2),
             "-t", str(countdown * 1000), # timeout in ms
             "-fp", # fullscreen preview
             "-w", str(width/2),
             "-h", str(height/2),
+            "-rot 90",
         ])
         node.send('/snap:%d,%d' % (pic_num, countdown))
         capture.wait()
@@ -105,7 +106,7 @@ def device_event(event):
                 # compleet renner_nr
                 if len(renner_nr) < 3:
                     if renner_nr[1:] == 'R':
-                        renner_nr ='00' + renner_nr[1:]
+                        renner_nr ='00' + renner_nr[2:]
                         renner_nr = 'R' + renner_nr[-2:]
                     else:
                         renner_nr = '000' + renner_nr
