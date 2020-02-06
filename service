@@ -24,7 +24,7 @@ def photo_mode():
         capture = subprocess.Popen([
             "raspistill",
             "-o", "picture%d.jpg" % target,
-            "-p", "%d,%d,%d,%d" % (width/2,500, width/2),
+            "-p", "%d,%d,%d,%d" % (width/2,0,500, width/2),
             "-t", str(countdown * 1000), # timeout in ms
             "-fp", # fullscreen preview
             "-w", str(width/2),
@@ -92,8 +92,7 @@ def device_event(event):
 #            )))
     global renner_nr
     if event.type == ecodes.EV_KEY and event.code in ecodes.KEY:
-        print >>sys.stderr, "Key code " 
-        print >>sys.stderr, ecodes.KEY[event.code]
+
         if event.value == key_down:
             key_in = ecodes.KEY[event.code][-1:]
             if ecodes.KEY[event.code] in num_key and len(renner_nr) <3:
@@ -105,8 +104,11 @@ def device_event(event):
             elif ecodes.KEY[event.code] in enter_key:
                 # compleet renner_nr
                 if len(renner_nr) < 3:
+                    print >>sys.stderr, "Key code " 
+                    print >>sys.stderr, renner_nr[1:1]
                     if renner_nr[1:1] == 'R':
                         renner_nr ='00' + renner_nr[2:]
+                        print >>sys.stder, renner_nr
                         renner_nr = 'R' + renner_nr[-2:]
                     else:
                         renner_nr = '000' + renner_nr
