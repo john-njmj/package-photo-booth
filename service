@@ -29,14 +29,13 @@ def photo_mode():
     args = args + "-fp " # fullscreen preview
     args = args + "-w " + str(1365) + " "
     args = args + "-h " + str(2048) + " "
-    args = args + "-k -v"
+    args = args + "-v"
     print >>sys.stderr, args
     cmd_args = shlex.split(args)
     print >>sys.stderr, cmd_args
     capture = subprocess.Popen(cmd_args)
     node.send('/snap:%d,%d' % (1, countdown))
-#    capture.wait()
-    time.sleep(6000) 
+    capture.wait()
     node.send('/collage:')
     if config.upload_url:
         try:
