@@ -197,6 +197,6 @@ function node.render()
             dynamic:draw(0, 0, WIDTH, HEIGHT)
         end
     elseif mode == "wait" then
-        text_center(WIDTH/2 - size, "Wait - Wait - Wait", size, 1,1,1,.5)
+        text_center(WIDTH/2 - (HEIGHT/10), "Wait - Wait - Wait", HEIGHT/10, 1,1,1,.5)
     end
 end
