@@ -186,7 +186,8 @@ function node.render()
     elseif mode == "collage" then
         local w = WIDTH/2
         local h = HEIGHT/2
-        for pic_num = 1, 4 do
+--        for pic_num = 1, 4 do
+        pic_num = 1
             local x = (pic_num-1)%2 * w
             local y = math.floor((pic_num-1)/2) * h
             pictures[pic_num]:draw(x, y, x+w, y+h)
@@ -196,6 +197,6 @@ function node.render()
             dynamic:draw(0, 0, WIDTH, HEIGHT)
         end
     elseif mode == "wait" then
-        text_center(mid - size, "Wait - Wait Wait", size, 1,1,1,.5)
+        text_center(mid - size, "Wait - Wait - Wait", size, 1,1,1,.5)
     end
 end
