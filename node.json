@@ -7,12 +7,12 @@
         "type": "section"
     }, {
         "title": "Title Font",
-        "name": "T_font",
+        "name": "t_font",
         "type": "font",
         "default": "font.ttf"
     }, {
         "title": "Detail Font",
-        "name": "D_font",
+        "name": "d_font",
         "type": "font",
         "default": "font.ttf"           
     }, {
