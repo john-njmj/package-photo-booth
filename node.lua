@@ -115,7 +115,7 @@ util.data_mapper{
         countdown_end = sys.now() + countdown
     end;
     collage = function()
-        pictures = resource.load_image "picture1.jpg"
+        my_pictures = resource.load_image "picture1.jpg"
         
 --            resource.load_image "picture2.jpg",
 --            resource.load_image "picture3.jpg",
@@ -190,7 +190,7 @@ function node.render()
         pic_num = 1
             local x = (pic_num-1)%2 * w
             local y = math.floor((pic_num-1)/2) * h
-            pictures:draw(x, y, x+w, y+h)
+            my_pictures:draw(x, y, x+w, y+h)
 --        end
         overlay:draw(0, 0, WIDTH, HEIGHT)
         if dynamic then
