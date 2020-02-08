@@ -191,7 +191,7 @@ function node.render()
             local x = (pic_num-1)%2 * w
             local y = math.floor((pic_num-1)/2) * h
             pictures[pic_num]:draw(x, y, x+w, y+h)
-        end
+--        end
         overlay:draw(0, 0, WIDTH, HEIGHT)
         if dynamic then
             dynamic:draw(0, 0, WIDTH, HEIGHT)
