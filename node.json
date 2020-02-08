@@ -14,7 +14,25 @@
         "title": "Detail Font",
         "name": "d_font",
         "type": "font",
-        "default": "font.ttf"           
+        "default": "font.ttf"   
+    }, {
+        "title": "Title Text",
+        "name": "t_text",
+        "type": "string",
+        "placeholder": "Title",
+        "default": ""
+    }, {
+        "title": "Reacer Text",
+        "name": "reacer_text",
+        "type": "string",
+        "placeholder": "Renner :",
+        "default": ""
+    }, {
+        "title": "Previous Text",
+        "name": "previous_text",
+        "type": "string",
+        "placeholder": "Vorige",
+        "default": ""        
     }, {
         "title": "Countdown",
         "name": "countdown",
