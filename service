@@ -17,13 +17,13 @@ def photo_mode():
     node.send('/photomode:')
     width, height = device.screen_resolution
 
-    for pic_num in range(1, 5):
-        print sys.stderr, "taking picture %d of 4" % (pic_num)
-        countdown = config['countdown_%d' % pic_num]
-        target = config.order[pic_num-1]
+#    for pic_num in range(1, 5):
+        print sys.stderr, "taking picture"
+        countdown = config['countdown_1']
+#        target = config.order[pic_num-1]
         args =  "raspistill "
-        args = args + "-o " + "picture%d.jpg " % target
-        args = args + "--rot 90 " 
+        args = args + "-o " + "picture1.jpg " 
+        args = args + "-rot 90 " 
         args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,500, width/2) + " "
         args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
         args = args + "-fp " # fullscreen preview
@@ -33,7 +33,7 @@ def photo_mode():
         cmd_args = shlex.split(args)
         print >>sys.stderr, cmd_args
         capture = subprocess.Popen(cmd_args)
-        node.send('/snap:%d,%d' % (pic_num, countdown))
+        node.send('/snap:%d,%d' % (1, countdown))
         capture.wait()
 
     node.send('/collage:')
@@ -115,8 +115,10 @@ def device_event(event):
                     else:
                         renner_nr = '000' + renner_nr
                         renner_nr = renner_nr[-3:]
-                # take picture
             node.send("/renner_nr:%s" % renner_nr)
+            if ecodes.KEY[event.code] in enter_key:
+                photo_mode()
+                
 def monitor_input():
     update_devices()
     r, w, e = select(devices.values(), [], [], 1)
@@ -128,13 +130,13 @@ def monitor_input():
             # device disconnected
             pass
 
-def monitor_gpio():
-#    node.send('/loop:')
-    pin, inverted = config.pin
-    device.gpio.monitor(pin, invert=inverted)
-    for _, state in device.gpio.poll_forever():
-        if state:
-            photo_mode()
+#def monitor_gpio():
+##    node.send('/loop:')
+#    pin, inverted = config.pin
+#    device.gpio.monitor(pin, invert=inverted)
+#    for _, state in device.gpio.poll_forever():
+#        if state:
+#            photo_mode()
 
 def run_in_thread(fn):
     def wrap():
