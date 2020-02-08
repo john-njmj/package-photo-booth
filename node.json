@@ -1,97 +1,23 @@
 {
     "name": "Photo Booth",
-    "permissions": {
-        "gpio": "Needs GPIO access",
-        "network": "Uploading of photos"
-    },
-    "options": [{
-        "title": "Idle Playlist",
-        "type": "section"
-    }, {
-        "title": "Playlist",
-        "name": "playlist",
-        "type": "list",
-        "itemname": "Item",
-        "items": [{
-            "title": "Asset",
-            "ui_width": 8,
-            "name": "file",
-            "type": "resource",
-            "valid": ["image", "video"],
-            "default": "empty.png"
-        }, {
-            "title": "Duration",
-            "ui_width": 4,
-            "name": "duration",
-            "type": "duration",
-            "hint": "How long should this item be displayed on screen. For videos, use their duration",
-            "default": 5
-        }],
-        "default": [{
-            "file": "empty.png",
-            "duration": 5
-        }]
-    }, {
+    "permissions": {"network": "Uploading of photos"},
+    "options": [
+    {
         "title": "Photobooth options",
         "type": "section"
     }, {
-        "title": "Trigger GPIO",
-        "ui_width": 3,
-        "name": "pin",
-        "type": "select",
-        "options": [
-            [[15, false], "15"],
-            [[17, false], "17"],
-            [[18, false], "18"],
-            [[23, false], "23"],
-            [[24, false], "24"],
-
-            [[15, true], "15 (inverted)"],
-            [[17, true], "17 (inverted)"],
-            [[18, true], "18 (inverted)"],
-            [[23, true], "23 (inverted)"],
-            [[24, true], "24 (inverted)"]
-        ],
-        "default": [18, false]
-    },  {
-        "title": "Snapshot order",
-        "ui_width": 3,
-        "ui_spacing": 6,
-        "name": "order",
-        "type": "select",
-        "options": [
-            [[1,2,3,4], "1,2,3,4 (default)"],
-            [[1,2,4,3], "1,2,4,3"],
-            [[1,3,2,4], "1,3,2,4"],
-            [[1,3,4,2], "1,3,4,2"],
-            [[1,4,2,3], "1,4,2,3"],
-            [[1,4,3,2], "1,4,3,2"],
-            [[2,1,3,4], "2,1,3,4"],
-            [[2,1,4,3], "2,1,4,3"],
-            [[2,3,1,4], "2,3,1,4"],
-            [[2,3,4,1], "2,3,4,1"],
-            [[2,4,1,3], "2,4,1,3"],
-            [[2,4,3,1], "2,4,3,1"],
-            [[3,1,2,4], "3,1,2,4"],
-            [[3,1,4,2], "3,1,4,2"],
-            [[3,2,1,4], "3,2,1,4"],
-            [[3,2,4,1], "3,2,4,1"],
-            [[3,4,1,2], "3,4,1,2"],
-            [[3,4,2,1], "3,4,2,1"],
-            [[4,1,2,3], "4,1,2,3"],
-            [[4,1,3,2], "4,1,3,2"],
-            [[4,2,1,3], "4,2,1,3"],
-            [[4,2,3,1], "4,2,3,1"],
-            [[4,3,1,2], "4,3,1,2"],
-            [[4,3,2,1], "4,3,2,1"]
-        ],
-        "default": [1,2,3,4]
-    },
-
-    {
-        "title": "First countdown",
-        "ui_width": 3,
-        "name": "countdown_1",
+        "title": "Title Font",
+        "name": "T_font",
+        "type": "font",
+        "default": "font.ttf"
+    }, {
+        "title": "Detail Font",
+        "name": "D_font",
+        "type": "font",
+        "default": "font.ttf"           
+    }, {
+        "title": "Countdown",
+        "name": "countdown",
         "type": "select",
         "options": [
             [2,  "2 seconds"],
@@ -101,59 +27,7 @@
         ],
         "default": 5
     }, {
-        "title": "Second countdown",
-        "ui_width": 3,
-        "name": "countdown_2",
-        "type": "select",
-        "options": [
-            [2,  "2 seconds"],
-            [3,  "3 seconds"],
-            [5,  "5 seconds (default)"],
-            [8,  "8 seconds"]
-        ],
-        "default": 5
-    }, {
-        "title": "Third countdown",
-        "ui_width": 3,
-        "name": "countdown_3",
-        "type": "select",
-        "options": [
-            [2,  "2 seconds"],
-            [3,  "3 seconds"],
-            [5,  "5 seconds (default)"],
-            [8,  "8 seconds"]
-        ],
-        "default": 5
-    }, {
-        "title": "Fourth countdown",
-        "ui_width": 3,
-        "name": "countdown_4",
-        "type": "select",
-        "options": [
-            [2,  "2 seconds"],
-            [3,  "3 seconds"],
-            [5,  "5 seconds (default)"],
-            [8,  "8 seconds"]
-        ],
-        "default": 5
-    },
-    
-    {
-        "title": "Collage Overlay",
-        "ui_width": 3,
-        "name": "collage_overlay",
-        "type": "resource",
-        "valid": ["image"],
-        "default": "empty.png"
-    }, {
-        "title": "Collage Time (s)",
-        "ui_width": 3,
-        "name": "collage_time",
-        "type": "duration",
-        "default": 10
-    }, {
-        "title": "Collage Upload",
-        "ui_width": 6,
+        "title": "Picture Upload",
         "name": "upload_url",
         "type": "string",
         "placeholder": "Backend for upload",
