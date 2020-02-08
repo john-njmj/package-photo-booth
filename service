@@ -18,23 +18,23 @@ def photo_mode():
     width, height = device.screen_resolution
 
 #    for pic_num in range(1, 5):
-        print sys.stderr, "taking picture"
-        countdown = config['countdown_1']
-#        target = config.order[pic_num-1]
-        args =  "raspistill "
-        args = args + "-o " + "picture1.jpg " 
-        args = args + "-rot 90 " 
-        args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,500, width/2) + " "
-        args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
-        args = args + "-fp " # fullscreen preview
-        args = args + "-w " + str(width/2) + " "
-        args = args + "-h " + str(height/2) + " "
-        print >>sys.stderr, args
-        cmd_args = shlex.split(args)
-        print >>sys.stderr, cmd_args
-        capture = subprocess.Popen(cmd_args)
-        node.send('/snap:%d,%d' % (1, countdown))
-        capture.wait()
+    print sys.stderr, "taking picture"
+    countdown = config['countdown_1']
+#    target = config.order[pic_num-1]
+    args =  "raspistill "
+    args = args + "-o " + "picture1.jpg " 
+    args = args + "-rot 90 " 
+    args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,500, width/2) + " "
+    args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
+    args = args + "-fp " # fullscreen preview
+    args = args + "-w " + str(width/2) + " "
+    args = args + "-h " + str(height/2) + " "
+    print >>sys.stderr, args
+    cmd_args = shlex.split(args)
+    print >>sys.stderr, cmd_args
+    capture = subprocess.Popen(cmd_args)
+    node.send('/snap:%d,%d' % (1, countdown))
+    capture.wait()
 
     node.send('/collage:')
     if config.upload_url:
