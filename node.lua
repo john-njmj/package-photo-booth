@@ -115,7 +115,7 @@ util.data_mapper{
         countdown_end = sys.now() + countdown
     end;
     collage = function()
-        my_pictures = resource.load_image "picture1.jpg"
+        pictures = resource.load_image "picture1.jpg"
         
 --            resource.load_image "picture2.jpg",
 --            resource.load_image "picture3.jpg",
@@ -190,12 +190,12 @@ function node.render()
         pic_num = 1
             local x = (pic_num-1)%2 * w
             local y = math.floor((pic_num-1)/2) * h
-            my_pictures:draw(x, y)
+            pictures:draw(x, y)
 --        end
-        overlay:draw(0, 0, WIDTH, HEIGHT)
-        if dynamic then
-            dynamic:draw(0, 0, WIDTH, HEIGHT)
-        end
+--        overlay:draw(0, 0, WIDTH, HEIGHT)
+--        if dynamic then
+--            dynamic:draw(0, 0, WIDTH, HEIGHT)
+--        end
     elseif mode == "wait" then
         text_center(WIDTH/2 - (HEIGHT/10), "Wait - Wait - Wait", HEIGHT/10, 1,1,1,.5)
     end
