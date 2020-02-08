@@ -35,8 +35,8 @@ def photo_mode():
     print >>sys.stderr, cmd_args
     capture = subprocess.Popen(cmd_args)
     node.send('/snap:%d,%d' % (1, countdown))
-    capture.wait()
-
+#    capture.wait()
+    time.sleep(6000) 
     node.send('/collage:')
     if config.upload_url:
         try:
