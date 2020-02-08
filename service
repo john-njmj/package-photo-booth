@@ -23,12 +23,13 @@ def photo_mode():
 #    target = config.order[pic_num-1]
     args =  "raspistill "
     args = args + "-o " + "picture1.jpg " 
-    args = args + "-rot 90 " 
-    args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,700, 0) + " "
+#    args = args + "-rot 90 " 
+    args = args + "-p " + "%d,%d,%d,%d" % (1000,0,682,1024) + " "
     args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
     args = args + "-fp " # fullscreen preview
     args = args + "-w " + str(1365) + " "
     args = args + "-h " + str(2048) + " "
+    args = args + "-k -v"
     print >>sys.stderr, args
     cmd_args = shlex.split(args)
     print >>sys.stderr, cmd_args
