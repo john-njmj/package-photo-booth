@@ -24,11 +24,11 @@ def photo_mode():
     args =  "raspistill "
     args = args + "-o " + "picture1.jpg " 
     args = args + "-rot 90 " 
-    args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,500, width/2) + " "
+    args = args + "-p " + "%d,%d,%d,%d" % (width/2,0,700, 0) + " "
     args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
     args = args + "-fp " # fullscreen preview
-    args = args + "-w " + str(width/2) + " "
-    args = args + "-h " + str(height/2) + " "
+    args = args + "-w " + str(1800) + " "
+    args = args + "-h " + str(2700) + " "
     print >>sys.stderr, args
     cmd_args = shlex.split(args)
     print >>sys.stderr, cmd_args
