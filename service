@@ -19,7 +19,7 @@ def photo_mode():
 
 #    for pic_num in range(1, 5):
     print sys.stderr, "taking picture"
-    countdown = config['countdown_1']
+    countdown = config['countdown']
 #    target = config.order[pic_num-1]
     args =  "raspistill "
     args = args + "-o " + "picture1.jpg " 
