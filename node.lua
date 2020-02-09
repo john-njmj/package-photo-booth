@@ -6,11 +6,11 @@ local white = resource.create_colored_texture(1,1,1,1)
 local black = resource.create_colored_texture(0,0,0,1)
 local t_font = resource.load_font "font.ttf"
 local d_font = resource.load_font "font.ttf"
-local t_text = " "
-local racer_text =" "
-local previous_text = " "
-local racer_nr = " "
-local racer_name = " "
+local t_text = "default title "
+local racer_text ="default Racer "
+local previous_text = "default Previous "
+local racer_nr = "NR"
+local racer_name = "Default Name "
 
 local dynamic
 
@@ -108,21 +108,21 @@ end)
 function node.render()
     -- part that that we want to display in all modes
     -- Title 
-    t_font:write(10, 10, t_text, 50, 1,1,1,1)
+    t_font:write(50, 50, t_text, 50, 1,1,1,1)
     -- Renner info 
-    d_font:write(20, 70, racer_text, 30 ,1,1,1,1)
-    d_font:write(220,70, racer_nr, 60 ,1,1,1,1)
-    d_font:write(20,130, racer_name, 30 ,1,1,1,1)
+    d_font:write(50, 100, racer_text, 30 ,1,1,1,1)
+    d_font:write(150,100, racer_nr, 60 ,1,1,1,1)
+    d_font:write(50,150, racer_name, 30 ,1,1,1,1)
     -- Vorige 
-    d_font:write(20,130, previous_text, 30 ,1,1,1,1)
+    d_font:write(50,200, previous_text, 30 ,1,1,1,1)
     if previous_pic1 then
-           previous_pic1:draw(20, 200, 200, 300)
+           previous_pic1:draw(300, 200, 200, 300)
     end
     if previous_pic2 then
-           previous_pic2:draw(240, 200, 200, 300)
+           previous_pic2:draw(500, 200, 200, 300)
     end
     if previous_pic3 then
-           previous_pic3:draw(480, 200, 200, 300)
+           previous_pic3:draw(700, 200, 200, 300)
     end
     -- old info for debuging 
     text_renner(HEIGHT-50, ren_nr, size, 1,1,1,1)
