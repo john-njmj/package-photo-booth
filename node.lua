@@ -25,7 +25,7 @@ util.json_watch("config.json", function(config)
     t_font = resource.load_font(config.t_font.asset_name)
     d_font = resource.load_font(config.d_font.asset_name)
     t_text = config.t_text
-    reacer_text = config.reacer_text
+    racer_text = config.reacer_text
     previous_text = config.previous_text
 end)
 
