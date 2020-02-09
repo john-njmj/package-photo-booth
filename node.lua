@@ -41,10 +41,9 @@ local countdown, countdown_end, pic_num
 local pictures
 
 util.data_mapper{
-    photomode = function()
-        player:stop()
-        mode = "photomode"
-    end;
+--    photomode = function()
+--        mode = "photomode"
+--    end;
     snap = function(info)
         mode = "snap"
         local seconds
