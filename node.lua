@@ -83,11 +83,11 @@ util.data_mapper{
 node.event("content_update", function(filename, file)
     if filename == "dynamic.png" then
         dynamic = resource.load_image(file)
-    elseif filiname == "picture1.jpg" then    
+    elseif filename == "picture1.jpg" then    
         previous_pic1 = resource.load_image(file)
-    elseif filiname == "picture2.jpg" then    
+    elseif filename == "picture2.jpg" then    
         previous_pic2 = resource.load_image(file)
-    elseif filiname == "picture3.jpg" then    
+    elseif filename == "picture3.jpg" then    
         previous_pic3 = resource.load_image(file)
     end
 end)
