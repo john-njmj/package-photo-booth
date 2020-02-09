@@ -28,13 +28,13 @@ util.json_watch("config.json", function(config)
 end)
 
 local function text_center(y, text, size, r,g,b,a)
-    local width = font:width(text, size)
-    return font:write((WIDTH-width)/2, y-size/2, text, size, r,g,b,a)
+    local width = d_font:width(text, size)
+    return d_font:write((WIDTH-width)/2, y-size/2, text, size, r,g,b,a)
 end
 
 local function text_renner(y, text, size, r,g,b,a)
-    local width = font:width(text, size)
-    return font:write(100, y-size, text, size, r,g,b,a)
+    local width = d_font:width(text, size)
+    return d_font:write(100, y-size, text, size, r,g,b,a)
 end
 
 local countdown, countdown_end, pic_num
@@ -106,13 +106,13 @@ end)
 function node.render()
     -- part that that we want to display in all modes
     -- Title 
-    font_t:write(10, 10, t_text, 50, 1,1,1,1)
+    t_font:write(10, 10, t_text, 50, 1,1,1,1)
     -- Renner info 
-    font_d:write(20, 70, racer_text, 30 ,1,1,1,1)
-    font_d:write(220,70, racer_nr, 60 ,1,1,1,1)
-    font_d:write(20,130, racer_name, 30 ,1,1,1,1)
+    d_font:write(20, 70, racer_text, 30 ,1,1,1,1)
+    d_font:write(220,70, racer_nr, 60 ,1,1,1,1)
+    d_font:write(20,130, racer_name, 30 ,1,1,1,1)
     -- Vorige 
-    font_d:write(20,130, previous_text, 30 ,1,1,1,1)
+    d_font:write(20,130, previous_text, 30 ,1,1,1,1)
     if previous_pic1 then
            previous_pic1:draw(20, 200, 200, 300)
     end
