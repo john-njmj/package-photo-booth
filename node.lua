@@ -4,8 +4,12 @@ util.no_globals()
 
 local white = resource.create_colored_texture(1,1,1,1)
 local black = resource.create_colored_texture(0,0,0,1)
-local font = resource.load_font "font.ttf"
-local overlay = resource.create_colored_texture(0,0,0,0)
+local t_font = resource.load_font "font.ttf"
+local d_font = resource.load_font "font.ttf"
+local t_text = ""
+local reacer_text =""
+local previous_text = ""
+
 local dynamic
 
 local mode = "wait"
@@ -15,80 +19,13 @@ local playlist = {}
 
 util.json_watch("config.json", function(config)
     print "updated config"
-    local new_playlist = {}
-    for idx, item in ipairs(config.playlist) do
-        new_playlist[idx] = {
-            file = resource.open_file(item.file.asset_name),
-            type = item.file.type,
-            duration = item.duration,
-        }
-    end
-    overlay:dispose()
-    overlay = resource.load_image(config.collage_overlay.asset_name)
-    playlist = new_playlist
+--    overlay:dispose()
+    t_font = resource.load_font(config.t_font.asset_name)
+    d_font = resource.load_font(config.d_font.asset_name)
+    t_text = config.t_text
+    reacer_text = config.reacer_text
+    previous_text = config.previous_text
 end)
-
-local function Player()
-    local cur = resource.create_colored_texture(0, 0, 0, 0)
-    local idx = 0
-    local ends = 0
-    local nxt, nxt_duration
-
-    local function load_next()
-        idx = idx % #playlist + 1
-        if not playlist[idx] then
-            return resource.create_colored_texture(0, 0, 0, 0)
-        elseif playlist[idx].type == "video" then
-            return resource.load_video{
-                file = playlist[idx].file:copy(),
-                raw = true,
-            }, playlist[idx].duration
-        else
-            return resource.load_image{
-                file = playlist[idx].file:copy(),
-            }, playlist[idx].duration
-        end
-    end
-
-    local function tick()
-        if sys.now() >= ends and not nxt then
-            nxt, nxt_duration = load_next()
-        end
-
-        if nxt then
-            local state = nxt:state()
-            if state == "loaded" then
-                ends = sys.now() + nxt_duration
-                local old
-                nxt, cur, old = nil, nxt, cur
-                old:dispose()
-            end
-        end
-
-        if type(cur) == "image" then
-            cur:draw(0, 0, WIDTH, HEIGHT)
-        else
-            cur:place(0, 0, WIDTH, HEIGHT):layer(1)
-        end
-    end
-
-    local function stop()
-        cur:dispose()
-        cur = resource.create_colored_texture(0, 0, 0, 0)
-        if nxt then
-            nxt:dispose()
-            nxt = nil
-        end
-        ends = 0
-    end
-
-    return {
-        tick = tick;
-        stop = stop;
-    }
-end
-
-local player = Player()
 
 local function text_center(y, text, size, r,g,b,a)
     local width = font:width(text, size)
@@ -99,6 +36,7 @@ local function text_renner(y, text, size, r,g,b,a)
     local width = font:width(text, size)
     return font:write(100, y-size, text, size, r,g,b,a)
 end
+
 local countdown, countdown_end, pic_num
 local pictures
 
@@ -141,6 +79,12 @@ util.data_mapper{
 node.event("content_update", function(filename, file)
     if filename == "dynamic.png" then
         dynamic = resource.load_image(file)
+    elseif filiname == "picture1.jpg" then    
+        previous_pic1 = resource.load_image(file)
+    elseif filiname == "picture2.jpg" then    
+        previous_pic2 = resource.load_image(file)
+    elseif filiname == "picture3.jpg" then    
+        previous_pic3 = resource.load_image(file)
     end
 end)
 
@@ -148,17 +92,42 @@ node.event("content_remove", function(filename)
     if filename == "dynamic.png" and dynamic then
         dynamic:dispose()
         dynamic = nil
+    elseif filename == "picture1.jpg" and previous_pic1 then            
+        previous_pic1:dispose()
+        previous_pic1 = nil
+    elseif filename == "picture2.jpg" and previous_pic2 then            
+        previous_pic2:dispose()
+        previous_pic2 = nil
+    elseif filename == "picture3.jpg" and previous_pic3 then            
+        previous_pic3:dispose()
+        previous_pic3 = nil
     end
 end)
 
 function node.render()
-    if mode == "loop" then
-        gl.clear(0, 0, 0, 0)
-        -- player.tick()
-        local size = math.ceil(HEIGHT/10)
-        text_renner(HEIGHT-50, ren_nr, size, 1,1,1,1)
-        text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
-    elseif mode == "snap" then
+    -- part that that we want to display in all modes
+    -- Title 
+    font_t:write(10, 10, t_text, 50, 1,1,1,1)
+    -- Renner info 
+    font_d:write(20, 70, racer_text, 30 ,1,1,1,1)
+    font_d:write(220,70, racer_nr, 60 ,1,1,1,1)
+    font_d:write(20,130, racer_name, 30 ,1,1,1,1)
+    -- Vorige 
+    font_d:write(20,130, previous_text, 30 ,1,1,1,1)
+    if previous_pic1 then
+           previous_pic1:draw(20, 200, 200, 300)
+    end
+    if previous_pic2 then
+           previous_pic2:draw(240, 200, 200, 300)
+    end
+    if previous_pic3 then
+           previous_pic3:draw(480, 200, 200, 300)
+    end
+    -- old info for debuging 
+    text_renner(HEIGHT-50, ren_nr, size, 1,1,1,1)
+    text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
+    -- countdown during the snap mode 
+    if mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
 
         -- Flash effect
@@ -168,29 +137,25 @@ function node.render()
         -- Info Text
         local size = math.ceil(HEIGHT/10)
         local mid = HEIGHT/2
-        text_center(mid - size, string.format("Photo %d of 4", pic_num), size, 1,1,1,.5)
-        text_renner(HEIGHT, ren_nr , size, 1,1,1,1)
         if remaining > 0 then
             -- text_center(mid, string.format("%.2f", remaining), size/2, 1,1,1,1)
         else
             text_center(mid, "Taking Picture", size/2, 0,0,0,1)
         end
-        text_center(mid + size, string.format("Look at Me", pic_num), size, 1,1,1,.5)
-
         -- Progress Slider
         local progress = WIDTH/2 - WIDTH/2 / countdown * remaining
         black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
         white:draw(0, mid-size/2, progress, mid+size/2, 0.2)
         white:draw(WIDTH, mid-size/2, WIDTH-progress, mid+size/2, 0.2)
         text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
-    elseif mode == "collage" then
-        local w = WIDTH/2
-        local h = HEIGHT/2
+--    elseif mode == "collage" then
+--        local w = WIDTH/2
+--        local h = HEIGHT/2
 --        for pic_num = 1, 4 do
-        pic_num = 1
-            local x = (pic_num-1)%2 * w
-            local y = math.floor((pic_num-1)/2) * h
-            pictures:draw(x, y)
+--        pic_num = 1
+--            local x = (pic_num-1)%2 * w
+--            local y = math.floor((pic_num-1)/2) * h
+--            pictures:draw(x, y)
 --        end
 --        overlay:draw(0, 0, WIDTH, HEIGHT)
 --        if dynamic then
