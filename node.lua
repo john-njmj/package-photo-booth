@@ -11,6 +11,9 @@ local racer_text = "default Racer "
 local previous_text = "default Previous "
 local racer_nr = "NR"
 local racer_name = "Default Name "
+local previous_pic1 =  resource.create_colored_texture(1,1,1,1)
+local previous_pic2 =  resource.create_colored_texture(1,1,1,1)
+local previous_pic3 =  resource.create_colored_texture(1,1,1,1)
 
 local dynamic
 
@@ -108,11 +111,11 @@ end)
 function node.render()
     -- part that that we want to display in all modes
     -- Title 
-    t_font:write(50, 50, t_text, 50, 1,1,1,1)
+    t_font:write(50, 50, t_text, 150, 1,1,1,1)
     -- Renner info 
-    d_font:write(50, 100, racer_text, 30 ,1,1,1,1)
-    d_font:write(150,100, racer_nr, 60 ,1,1,1,1)
-    d_font:write(50,150, racer_name, 30 ,1,1,1,1)
+    d_font:write(60, 125, racer_text, 30 ,1,1,1,1)
+    d_font:write(150,125, racer_nr, 60 ,1,1,1,1)
+    d_font:write(60,200, racer_name, 30 ,1,1,1,1)
     -- Vorige 
     d_font:write(50,200, previous_text, 30 ,1,1,1,1)
     if previous_pic1 then
