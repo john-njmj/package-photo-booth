@@ -6,11 +6,11 @@ local white = resource.create_colored_texture(1,1,1,1)
 local black = resource.create_colored_texture(0,0,0,1)
 local t_font = resource.load_font "font.ttf"
 local d_font = resource.load_font "font.ttf"
-local t_text = ""
-local racer_text =""
-local previous_text = ""
-local racer_nr = ""
-local racer_name = ""
+local t_text = " "
+local racer_text =" "
+local previous_text = " "
+local racer_nr = " "
+local racer_name = " "
 
 local dynamic
 
