@@ -96,9 +96,9 @@ node.event("content_remove", function(filename)
     if filename == "dynamic.png" and dynamic then
         dynamic:dispose()
         dynamic = nil
-    elseif filename == "picture1.jpg" and previous_pic1 then            
-        previous_pic1:dispose()
-        previous_pic1 = nil
+--    elseif filename == "picture1.jpg" and previous_pic1 then            
+--        previous_pic1:dispose()
+--        previous_pic1 = nil
     elseif filename == "picture2.jpg" and previous_pic2 then            
         previous_pic2:dispose()
         previous_pic2 = nil
@@ -119,13 +119,13 @@ function node.render()
     -- Vorige 
     d_font:write(50,300, previous_text, 30 ,1,1,1,1)
     if previous_pic1 then
-           previous_pic1:draw(300, 500, 500, 800)
+           previous_pic1:draw(300, 400, 700, 1000)
     end
     if previous_pic2 then
-           previous_pic2:draw(550, 500, 750, 800)
+           previous_pic2:draw(60, 400, 250, 685)
     end
     if previous_pic3 then
-           previous_pic3:draw(800, 500, 1000, 800)
+           previous_pic3:draw(60, 810, 250, 1000)
     end
     -- old info for debuging 
     text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
