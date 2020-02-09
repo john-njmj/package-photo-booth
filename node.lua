@@ -110,6 +110,7 @@ end)
 
 function node.render()
     -- part that that we want to display in all modes
+    gl.clear(1, 1, 1, 0)
     -- Title 
     t_font:write(50, 50, t_text, 75, 1,1,1,1)
     -- Renner info 
@@ -125,18 +126,18 @@ function node.render()
            previous_pic2:draw(60, 400, 250, 685)
     end
     if previous_pic3 then
-           previous_pic3:draw(60, 810, 250, 1000)
+           previous_pic3:draw(60, 715, 250, 1000)
     end
     -- old info for debuging 
-    text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
-    text_renner(HEIGHT-200, ren_nr_state, 50, 1,1,1,1)
+    -- text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
+    -- text_renner(HEIGHT-200, ren_nr_state, 50, 1,1,1,1)
     -- countdown during the snap mode 
     if mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
 
         -- Flash effect
         local flash = math.max(0, 1-remaining*5)
-        gl.clear(1, 1, 1, 0)
+'        gl.clear(1, 1, 1, 0)
 
         -- Info Text
         local size = math.ceil(HEIGHT/10)
