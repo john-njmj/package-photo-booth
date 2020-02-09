@@ -119,17 +119,17 @@ function node.render()
     -- Vorige 
     d_font:write(50,300, previous_text, 30 ,1,1,1,1)
     if previous_pic1 then
-           previous_pic1:draw(300, 500, 200, 300)
+           previous_pic1:draw(300, 500, 500, 800)
     end
     if previous_pic2 then
-           previous_pic2:draw(550, 500, 200, 300)
+           previous_pic2:draw(550, 500, 750, 800)
     end
     if previous_pic3 then
-           previous_pic3:draw(800, 500, 200, 300)
+           previous_pic3:draw(800, 500, 1000, 800)
     end
     -- old info for debuging 
-    text_renner(HEIGHT-50, ren_nr, size, 1,1,1,1)
-    text_renner(HEIGHT-200, ren_nr_state, size, 1,1,1,1)
+    text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
+    text_renner(HEIGHT-200, ren_nr_state, 50, 1,1,1,1)
     -- countdown during the snap mode 
     if mode == "snap" then
         local remaining = math.max(0, countdown_end - sys.now())
