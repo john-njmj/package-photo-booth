@@ -137,7 +137,7 @@ function node.render()
 
         -- Flash effect
         local flash = math.max(0, 1-remaining*5)
-'        gl.clear(1, 1, 1, 0)
+--        gl.clear(1, 1, 1, 0)
 
         -- Info Text
         local size = math.ceil(HEIGHT/10)
