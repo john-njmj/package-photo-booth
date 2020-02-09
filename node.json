@@ -22,8 +22,8 @@
         "placeholder": "Title",
         "default": ""
     }, {
-        "title": "Reacer Text",
-        "name": "reacer_text",
+        "title": "Racer Text",
+        "name": "racer_text",
         "type": "string",
         "placeholder": "Renner :",
         "default": ""
