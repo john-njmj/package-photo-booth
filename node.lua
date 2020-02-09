@@ -7,7 +7,7 @@ local black = resource.create_colored_texture(0,0,0,1)
 local t_font = resource.load_font "font.ttf"
 local d_font = resource.load_font "font.ttf"
 local t_text = "default title "
-local racer_text ="default Racer "
+local racer_text = "default Racer "
 local previous_text = "default Previous "
 local racer_nr = "NR"
 local racer_name = "Default Name "
@@ -25,7 +25,7 @@ util.json_watch("config.json", function(config)
     t_font = resource.load_font(config.t_font.asset_name)
     d_font = resource.load_font(config.d_font.asset_name)
     t_text = config.t_text
-    racer_text = config.reacer_text
+    racer_text = config.racer_text
     previous_text = config.previous_text
 end)
 
