@@ -11,9 +11,11 @@ local racer_text = "default Racer "
 local previous_text = "default Previous "
 local racer_nr = "NR"
 local racer_name = "Default Name "
-local previous_pic1 =  resource.create_colored_texture(0,1,1,1)
-local previous_pic2 =  resource.create_colored_texture(1,0,1,1)
-local previous_pic3 =  resource.create_colored_texture(1,1,0,1)
+local previous_pic
+local last_pic  = 1 
+previous_pic[1] =  resource.create_colored_texture(0,1,1,1)
+previous_pic[2] =  resource.create_colored_texture(1,0,1,1)
+previous_pic[3] =  resource.create_colored_texture(1,1,0,1)
 
 local dynamic
 
@@ -57,7 +59,7 @@ util.data_mapper{
         countdown_end = sys.now() + countdown
     end;
     collage = function()
-        pictures = resource.load_image "picture1.jpg"
+--        pictures = resource.load_image "picture.jpg"
         
 --            resource.load_image "picture2.jpg",
 --            resource.load_image "picture3.jpg",
@@ -78,17 +80,21 @@ util.data_mapper{
     end;
     
 }
+local function next_pic(pic_num)
+    new_pic_num = new_pic_num +1
+    if new_pic_num == 4 then
+        new_pic_num = 1
+    end 
+    return new_pic_num
+end
 
 -- Handle loading/unloading of dynamic server response
 node.event("content_update", function(filename, file)
     if filename == "dynamic.png" then
         dynamic = resource.load_image(file)
-    elseif filename == "picture1.jpg" then    
-        previous_pic1 = resource.load_image(file)
-    elseif filename == "picture2.jpg" then    
-        previous_pic2 = resource.load_image(file)
-    elseif filename == "picture3.jpg" then    
-        previous_pic3 = resource.load_image(file)
+    elseif filename == "picture.jpg" then
+        last_pic = next_pic(last_pic)    
+        previous_pic[last_pic] = resource.load_image(file)
     end
 end)
 
@@ -96,15 +102,6 @@ node.event("content_remove", function(filename)
     if filename == "dynamic.png" and dynamic then
         dynamic:dispose()
         dynamic = nil
---    elseif filename == "picture1.jpg" and previous_pic1 then            
---        previous_pic1:dispose()
---        previous_pic1 = nil
-    elseif filename == "picture2.jpg" and previous_pic2 then            
-        previous_pic2:dispose()
-        previous_pic2 = nil
-    elseif filename == "picture3.jpg" and previous_pic3 then            
-        previous_pic3:dispose()
-        previous_pic3 = nil
     end
 end)
 
@@ -119,14 +116,16 @@ function node.render()
     d_font:write(60,200, racer_name, 30 ,1,1,1,1)
     -- Vorige 
     d_font:write(50,300, previous_text, 30 ,1,1,1,1)
-    if previous_pic1 then
-           previous_pic1:draw(300, 400, 700, 1000)
+    -- draw last picture 
+    if previous[last_pic] then
+           previous[last_pic]:draw(300, 400, 700, 1000)
     end
-    if previous_pic2 then
-           previous_pic2:draw(60, 400, 250, 685)
+    -- draw pic before last picture 
+    if previous_pic[next_pic(last_pic)] then
+           previous_pic[next_pic(last_pic)]:draw(60, 400, 250, 685)
     end
-    if previous_pic3 then
-           previous_pic3:draw(60, 715, 250, 1000)
+    if previous_pic[next_pic(next_pic(last_pic))] then
+           previous_pic[next_pic(next_pic(last_pic))]:draw(60, 715, 250, 1000)
     end
     -- old info for debuging 
     -- text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
