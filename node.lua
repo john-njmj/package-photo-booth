@@ -70,7 +70,7 @@ end
 
 local function find_renner(nr)
     local name 
-    if racer_list <> {} then 
+    if racer_list := {} then 
         name = racer_list[1][2]
         --    name = "Niet gevonden - " .. nr
     else
