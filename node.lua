@@ -20,8 +20,8 @@ previous_pic[3] =  resource.create_colored_texture(1,1,0,1)
 local dynamic
 
 local mode = "wait"
-local ren_nr = "0"
-local ren_nr_state = "none"
+-- local ren_nr = "0"
+-- local ren_nr_naam = "none"
 local playlist = {}
 
 util.json_watch("config.json", function(config)
@@ -47,6 +47,12 @@ end
 local countdown, countdown_end, pic_num
 local pictures
 
+local function find_renner(nr)
+    local name 
+    name = "Niet gevonden - " & str(nr)
+    return "Niet gevonden"
+end 
+
 util.data_mapper{
 --    photomode = function()
 --        mode = "photomode"
@@ -71,11 +77,11 @@ util.data_mapper{
         mode = "loop"
     end;
     renner_nr = function(info)
-        ren_nr = info
-        if string.len(ren_nr) == 3 then
-           ren_nr_state = "Renner"
+        racer_nr = info
+        if string.len(racer_nr) == 3 then
+           racer_name = find_renner(racer_nr)
         else 
-           ren_nr_state = "Input"
+           racer_name = "----"
         end
     end;
     
