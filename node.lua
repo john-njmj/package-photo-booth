@@ -117,8 +117,8 @@ function node.render()
     -- Vorige 
     d_font:write(50,300, previous_text, 30 ,1,1,1,1)
     -- draw last picture 
-    if previous[last_pic] then
-           previous[last_pic]:draw(300, 400, 700, 1000)
+    if previous_pic[last_pic] then
+           previous_pic[last_pic]:draw(300, 400, 700, 1000)
     end
     -- draw pic before last picture 
     if previous_pic[next_pic(last_pic)] then
