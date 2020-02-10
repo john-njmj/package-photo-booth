@@ -107,6 +107,7 @@ util.data_mapper{
         racer_nr = info
         if string.len(racer_nr) == 3 then
            racer_name = find_renner(racer_nr)
+           print racer_name 
         else 
            racer_name = "----"
         end
