@@ -49,7 +49,7 @@ local pictures
 
 local function find_renner(nr)
     local name 
-    name = "Niet gevonden - " & str(nr)
+    name = "Niet gevonden - " .. nr
     return "Niet gevonden"
 end 
 
