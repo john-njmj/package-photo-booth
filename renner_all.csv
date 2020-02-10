@@ -1,0 +1,209 @@
+﻿NR,name,CAT_ID,CLUB_ID
+337,Baden David,CJ,SSC
+369,Kieser Sebastian,CJ,SSC
+382,Daenen Joran,CJ,HEV
+383,Suttels Siebe,CJ,HEV
+384,Vandenbussche Lukas,CJ,ZRC
+385,Willems Thibeau,CJ,HEV
+386,Van Gompel Kobe,CJ,FTM
+387,Patrouille Lars,CJ,ZRC
+388,Vansteenkiste Joren,CJ,ZRC
+389,Vanherck Lukas,CJ,RST
+390,Massuit Jarne,CJ,RST
+391,Berge Laurens,CJ,RST
+392,Turcksin Finn,CJ,HEV
+393,Mulder Tom,CJ,HEV
+394,Jacobs Keegan,CJ,HEV
+395,Beelen Brend,CJ,HEV
+396,Le Lièvre Koen,CJ,KMW
+397,Van Damme Fré,CJ,BSC
+398,Troost Sietse,CJ,RRZ
+399,De Pauw Pablo,CJ,SCE
+301,Geerts Jorun,CM,RRZ
+302,Istas Helena,CM,RRZ
+303,Lauwers Julie,CM,RRZ
+304,Leemans Louka,CM,RRZ
+305,Moons Lieke,CM,RRZ
+306,Mouillard Fran,CM,RRZ
+307,Okunuyi Shola,CM,RRZ
+308,Seys Jocelyne,CM,ZRC
+309,Le Lièvre Caroline,CM,KMW
+310,Puttevils Amber,CM,HEV
+311,Alaerts Mie,CM,HEV
+312,Bollaers Lena,CM,HEV
+313,Marlein Caley,CM,ZRC
+314,Van Haaren Sydney,CM,ZRC
+315,Lowie Britt,CM,ZRC
+316,Mrowicki Klara,CM,RRZ
+317,Gru Annabelle,CM,RRZ
+318,Billet Aude,CM,ZRC
+319,Verburgh Lotte,CM,ZRC
+320,Poels Mona,CM,HEV
+330,Özdemir Nina,CM,SSC
+191,Lingier Trui,JD,ZRC
+192,Pierloot Amber,JD,ZRC
+193,Devisscher Myra,JD,STE
+194,Van Gompel Kato,JD,FTM
+195,Van Gompel Rika,JD,FTM
+196,Vanhoutte Fran,JD,ZRC
+197,Laeremans Liene,JD,RST
+198,Bergé Anne-Sophie,JD,RST
+199,Billen Bente,JD,HEV
+981,Buggenhaut Cara,JD,RRZ
+101,Vanes Fabio,JH,RRZ
+102,Janssens Jens,JH,RRZ
+103,Van Damme Warre,JH,BSC
+104,Beelen Robbe,JH,HEV
+105,Soetaerts Daan,JH,HEV
+106,Gru Maël,JH,RRZ
+107,Brissinck Jolan,JH,ZRC
+108,Brissinck Milan,JH,ZRC
+112,King Alexander,JH,EIS
+120,King Alexander (fout),JH,EIS
+910,Dedapper Laurens,JH,STE
+601,Trekels Staf,MJ,RRZ
+602,Maeremans Jarne,MJ,RRZ
+603,De Kimpe Ferre,MJ,ZRC
+604,Deceuninck Matteo,MJ,ZRC
+605,Verstraeten Isaak,MJ,HEV
+606,Verstraeten Jonah,MJ,HEV
+607,Vermont Klaas,MJ,RRZ
+692,Liu Sofie,MM,KMW
+693,Proot Jinthe,MM,ZRC
+694,Cai Noor,MM,RRZ
+695,Devolder Fran,MM,RRZ
+696,Deblauwe Mina,MM,ZRC
+697,Pape Asa,MM,ZRC
+698,Bartholomeeussen Ellie,MM,KRV
+699,Van De Velde Hannelore,MM,ZRC
+558,Buckler Arthur,PJ,WIS
+580,Buckler Arthur (fout),PJ,WIS
+588,De Cloedt Max-Levi,PJ,ZRC
+589,Verleene Massimo,PJ,ZRC
+590,Willems Louis,PJ,HEV
+591,Istas Florian,PJ,RRZ
+592,De Weweire Briek,PJ,STE
+593,Schiro Gabriel,PJ,RRZ
+594,Deblauwe Leon,PJ,ZRC
+595,Kusters Lenn,PJ,RST
+596,Reynaerts Lukas,PJ,RST
+597,Trekels Fons,PJ,RRZ
+598,Roosens Ruben,PJ,RRZ
+599,Goyeau Romain,PJ,RRZ
+501,Vanhecke Fran,PM,SCE
+502,Dumon Celeste,PM,RRZ
+503,Haemels Lotte,PM,RRZ
+504,Vermeire Lotte,PM,ZRC
+505,Leyers Noor,PM,RRZ
+506,Malu Louise,PM,RRZ
+507,Cai Laura,PM,RRZ
+508,Lamberts Lies,PM,RRZ
+509,Bartholomeeussen Hanna,PM,KRV
+510,Bergé Elise,PM,RST
+511,Hoelbeek Lien,PM,RST
+512,Vermont Roos,PM,RRZ
+513,Lanoye Renske,PM,RST
+1,Tas Sandrine,SD,ZRC
+2,Vanes Femke,SD,RRZ
+3,Houben Lotte,SD,RRZ
+4,Keuleers Nymphe,SD,RRZ
+5,Mozin Lina,SD,RRZ
+6,Van De Catsye Ellen,SD,RRZ
+7,Van Relegem Carolien,SD,RRZ
+8,Vennix Ellen,SD,RRZ
+9,Vos Anke,SD,RRZ
+10,Danneel Alexandra,SD,ZRC
+11,Vosté Jasmina,SD,ZRC
+12,Van Laethem Charlotte,SD,ZRC
+13,Dejonghe Hanne,SD,BSC
+14,Coene Shirley,SD,BSC
+15,Fierens Ruth,SD,HEV
+16,Hernalsteen Katrien,SD,HEV
+17,Huys Vera,SD,HEV
+18,Genouw Staci,SD,ZRC
+19,Vanhoutte Stien,SD,ZRC
+20,Van den Eynde Nina,SD,FTM
+21,Vallons Wendy,SD,RST
+30,Bathgate Maya,SD,EIS
+31,Ribeiro Tatiana,SD,ISK
+251,Verbesselt Christel,SD,RRZ
+252,Vercammen Kimberly,SD,RRZ
+253,Maes Sandra,SD,FTM
+254,Olmer Leen,SD,FTM
+255,Desplenter Saskia,SD,ITBSC
+256,Vandenbroele Inge,SD,ITBSC
+257,Pierloot Lies,SD,ZRC
+258,Van Miert Annelies,SD,KRV
+70,King Daniel,SH,EIS
+80,Suttels Jason,SH,HEV
+81,Vosté Thomas,SH,ZRC
+82,Michael Peter,SH,ZRC
+83,Sibiet Tim,SH,ZRC
+84,Lowie Mick,SH,ZRC
+85,Vanhoutte Lars,SH,ZRC
+86,Van Haaren Niels,SH,ZRC
+87,Médard Indra,SH,ZRC
+88,Lippens Brecht,SH,ZRC
+89,Cartois Giles,SH,RST
+90,Vandebeeck Yannis,SH,HEV
+91,Vosté Mathias,SH,HEV
+92,Delbare Kwint,SH,BSC
+93,Vandenbroele Tom,SH,BSC
+94,Vanhooren Stan,SH,ZRC
+95,Vanhooren Fré,SH,ZRC
+96,Dhondt Simon,SH,ZRC
+97,Danneel David,SH,ZRC
+98,Vennix Wouter,SH,RRZ
+99,Swings Bart,SH,HEV
+237,Leeman Steven,SH,IZE
+239,Joliet Danny,SH,STE
+240,Decramer Yves,SH,STE
+241,Coryn Kris,SH,KMW
+242,Meeus Tiemen,SH,KMW
+243,Boon Gery,SH,KMW
+244,Coene Jurgen,SH,ITBSC
+245,Verleene Miguel,SH,ZRC
+246,Deceunincks Andy,SH,ZRC
+247,De Kimpe Pieter,SH,ZRC
+248,Vennix Tom,SH,RRZ
+249,Alderweireldt Gino,SH,RRZ
+401,De Pauw Matteo,SJ,SCE
+402,Beelen Stan,SJ,HEV
+403,Coppens Jori,SJ,RRZ
+404,Soni Rohan,SJ,RRZ
+405,Lanckriet Mika,SJ,ZRC
+406,Callaert Quinten,SJ,FTM
+407,De Reys Vince,SJ,HEV
+408,De Wachter Siebe,SJ,HEV
+409,Morias Seppe,SJ,HEV
+410,Uyttebroeck Elias,SJ,HEV
+411,Vermeersch Johannes,SJ,HEV
+412,Dekens Lowie,SJ,RST
+413,Janssens Bram,SJ,RST
+414,Schiro Jeremy,SJ,RRZ
+415,Reynaerts Vik,SJ,RST
+416,Mouillard Arthur,SJ,RRZ
+417,Gobbin Ward,SJ,ZRC
+418,Peers Joren,SJ,KMW
+991,Leeman Oliver,SJ,ISE
+445,Wordsworth Keira,SM,NLR
+450,Wordsworth Keira (445),SM,NLR
+482,Vandersteene Jade,SM,ZRC
+483,De Martelaere Linde,SM,STE
+484,De Witte Marlies,SM,STE
+485,Wulteputte Nina,SM,STE
+486,Vansteenkiste Marlies,SM,ZRC
+487,Vansteenkiste Lyssa,SM,ZRC
+488,Hoelbeek Lotte,SM,RST
+489,Mulder Eline,SM,HEV
+490,Claus Chelsey,SM,RRZ
+491,Claus Ashley,SM,RRZ
+492,Binst Chloë,SM,RRZ
+493,Vermeir Maité,SM,RRZ
+494,Vereecke Larissa,SM,RRZ
+495,Vandenbussche Lauren,SM,ZRC
+496,Malu Marie,SM,RRZ
+497,Haemels Merel,SM,RRZ
+498,Coppieters Kaat,SM,RRZ
+499,Deroo Romy,SM,ZRC
+901,Adams Noor,SM,BSC
