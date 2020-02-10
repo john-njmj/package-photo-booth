@@ -11,6 +11,7 @@ local racer_text = "default Racer "
 local previous_text = "default Previous "
 local racer_nr = "NR"
 local racer_name = "Default Name "
+local racer_list = {}
 local previous_pic = {}
 local last_pic  = 1 
 previous_pic[1] =  resource.create_colored_texture(0,1,1,1)
@@ -47,10 +48,34 @@ end
 local countdown, countdown_end, pic_num
 local pictures
 
+function load_csv(my_csv_file)
+   local my_csv = resource.load_file(localized(my_csv_file))
+   local lines = {}
+   for line in my_csv:gmatch("[^\n]+") do
+      line=trim(line)
+      local items={}
+      for item in line:gmatch("[^,]+") do
+         items[#items+1] = trim(item)
+      end
+      lines[#lines+1] = items
+   end
+   return lines
+end
+
+local function trim(s)
+   return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+
+
 local function find_renner(nr)
     local name 
-    name = "Niet gevonden - " .. nr
-    return "Niet gevonden"
+    if racer_list <> {} then 
+        name = racer_list[1][2]
+        --    name = "Niet gevonden - " .. nr
+    else
+        name = "Geen Lijst"
+    return name
 end 
 
 util.data_mapper{
@@ -102,6 +127,8 @@ node.event("content_update", function(filename, file)
     elseif filename == "picture.jpg" then
         last_pic = next_pic(last_pic)    
         previous_pic[last_pic] = resource.load_image(file)
+    elseif filename == "renners.csv" then 
+        racer_list = load_csv(filename)    
     end
 end)
 
