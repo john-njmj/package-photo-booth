@@ -181,9 +181,9 @@ def run_in_thread(fn):
             
             
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=18888, debug=False)
+    
     node.send('/loop:')
 #    run_in_thread(monitor_gpio)
     run_in_thread(monitor_input)
-    
+    run_in_thread(app.run(host='0.0.0.0', port=18888, debug=False))
     while 1: time.sleep(1000)
