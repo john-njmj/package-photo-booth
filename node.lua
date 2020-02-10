@@ -11,7 +11,7 @@ local racer_text = "default Racer "
 local previous_text = "default Previous "
 local racer_nr = "NR"
 local racer_name = "Default Name "
-local previous_pic
+local previous_pic = {}
 local last_pic  = 1 
 previous_pic[1] =  resource.create_colored_texture(0,1,1,1)
 previous_pic[2] =  resource.create_colored_texture(1,0,1,1)
