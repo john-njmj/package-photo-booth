@@ -128,7 +128,7 @@ node.event("content_update", function(filename, file)
     elseif filename == "picture.jpg" then
         last_pic = next_pic(last_pic)    
         previous_pic[last_pic] = resource.load_image(file)
-    elseif filename == "renners.csv" then 
+    elseif filename == "renners_all.csv" then 
         racer_list = load_csv(filename)    
     end
 end)
