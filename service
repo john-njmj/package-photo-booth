@@ -33,38 +33,6 @@ def upload():
     png.seek(0)
     return send_file(png, mimetype='image/png')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 config.restart_on_update()
 num_key = {'KEY_KP0','KEY_KP1','KEY_KP2','KEY_KP3','KEY_KP4','KEY_KP5','KEY_KP6','KEY_KP7','KEY_KP8','KEY_KP9'}
 enter_key = {'KEY_KPENTER','KEY_ENTER'}
@@ -213,7 +181,7 @@ def run_in_thread(fn):
             
             
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8888, debug=False)
+    app.run(host='0.0.0.0', port=18888, debug=False)
     node.send('/loop:')
 #    run_in_thread(monitor_gpio)
     run_in_thread(monitor_input)
