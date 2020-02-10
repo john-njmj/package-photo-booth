@@ -82,7 +82,7 @@ util.data_mapper{
 }
 local function next_pic(pic_num)
     local new_pic_num = 0
-    new_pic_num = new_pic_num +1
+    new_pic_num = pic_num +1
     if new_pic_num == 4 then
         new_pic_num = 1
     end 
