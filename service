@@ -56,11 +56,11 @@ def photo_mode():
         except Exception as err:
             traceback.print_exc()
 
-    time.sleep(config.collage_time)
+#    time.sleep(config.collage_time)
 #    for pic_num in range(1, 5):
-    os.unlink("picture1.jpg")
-    if os.path.exists('dynamic.png'):
-        os.unlink("dynamic.png")
+#    os.unlink("picture1.jpg")
+#    if os.path.exists('dynamic.png'):
+#        os.unlink("dynamic.png")
     node.send('/loop:')
 
 devices = {}
