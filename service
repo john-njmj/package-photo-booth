@@ -73,7 +73,7 @@ def photo_mode():
                 files = {
                     'pic': open('picture.jpg', 'rb')
                 },
-                data = {nr: renner_nr},
+                data = {'nr': renner_nr},
                 stream = True,
             )
             r.raise_for_status()
