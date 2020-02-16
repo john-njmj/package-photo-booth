@@ -71,7 +71,7 @@ def photo_mode():
             r = requests.post(
                 url = config.upload_url,
                 files = {
-                    'pic': open('picture.jpg', 'rb')
+                    'file': open('picture.jpg', 'rb')
                 },
                 data = {'nr': renner_nr},
                 stream = True,
