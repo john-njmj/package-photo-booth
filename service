@@ -66,7 +66,7 @@ def photo_mode():
     node.send('/snap:%d,%d' % (1, countdown))
     capture.wait()
     img = Image.open('picture.jpg')
-    img = img.crop(86,0,1451,2048).save(picture.jpg)
+    img = img.crop((86,0,1451,2048)).save(picture.jpg)
     node.send('/collage:')
     if config.upload_url:
         try:
