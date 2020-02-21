@@ -49,7 +49,7 @@ def photo_mode():
     countdown = config['countdown']
 #    target = config.order[pic_num-1]
     args =  "raspistill "
-    args = args + "-o " + "picture.jpg " 
+    args = args + "-o " + "picture_in.jpg " 
 #    args = args + "-rot 90 "
     args = args + "-hf "
     args = args + "-p " + "%d,%d,%d,%d" % (1000,0,770,1024) + " "
@@ -64,7 +64,7 @@ def photo_mode():
     capture = subprocess.Popen(cmd_args)
     node.send('/snap:%d,%d' % (1, countdown))
     capture.wait()
-    img = Image.open('picture.jpg')
+    img = Image.open('picture_in.jpg')
     img = img.crop((86,0,1451,2048))
     img = img.transpose(Image.FLIP_LEFT_RIGHT)
     img.save('picture.jpg')
