@@ -53,10 +53,10 @@ def photo_mode():
     args = args + "-o " + "picture.jpg " 
 #    args = args + "-rot 90 "
     args = args + "-hf "
-    args = args + "-p " + "%d,%d,%d,%d" % (1000,0,682,1024) + " "
+    args = args + "-p " + "%d,%d,%d,%d" % (1000,0,770,1024) + " "
     args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
     args = args + "-fp " # fullscreen preview
-    args = args + "-w " + str(1365) + " "
+    args = args + "-w " + str(1538) + " "
     args = args + "-h " + str(2048) + " "
     args = args + "-v"
     print >>sys.stderr, args
