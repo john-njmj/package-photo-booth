@@ -54,7 +54,7 @@ local function load_csv(my_csv_file)
    local lines = {}
    for line in my_csv:gmatch("[^\n]+") do
       line=trim(line)
-      print line
+      print (line)
       local items={}
       for item in line:gmatch("[^,]+") do
          items[#items+1] = trim(item)
@@ -132,7 +132,7 @@ node.event("content_update", function(filename, file)
         last_pic = next_pic(last_pic)    
         previous_pic[last_pic] = resource.load_image(file)
     elseif filename == "renner_all.csv" then 
-        print 'LOAD CSV'    
+        print ('LOAD CSV')    
         racer_list = load_csv(filename)    
     end
 end)
