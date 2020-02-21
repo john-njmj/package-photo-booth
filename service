@@ -65,7 +65,7 @@ def photo_mode():
     node.send('/snap:%d,%d' % (1, countdown))
     capture.wait()
     img = Image.open('picture_in.jpg')
-    img = img.crop((86,0,1451,2048))
+    #img = img.crop((86,0,1451,2048))
     img = img.transpose(Image.FLIP_LEFT_RIGHT)
     img.save('picture.jpg')
     node.send('/collage:')
