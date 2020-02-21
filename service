@@ -80,8 +80,6 @@ def photo_mode():
                 stream = True,
             )
             r.raise_for_status()
- #           if r.headers['content-type'] != "image/png":
- #               raise Exception("Not a PNG")
             node.write_file('dynamic.png', r.raw.read())
         except Exception as err:
             traceback.print_exc()
@@ -96,11 +94,10 @@ def photo_mode():
                 stream = True,
             )
             r.raise_for_status()
-#    time.sleep(config.collage_time)
-#    for pic_num in range(1, 5):
-#    os.unlink("picture1.jpg")
-#    if os.path.exists('dynamic.png'):
-#        os.unlink("dynamic.png")
+            node.write_file('dynamic.png', r.raw.read())
+        except Exception as err:
+            traceback.print_exc()
+
     node.send('/loop:')
 
 devices = {}
