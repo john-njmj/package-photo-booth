@@ -11,8 +11,8 @@ local racer_text = "default Racer "
 local previous_text = "default Previous "
 local racer_nr = "NR"
 local racer_name = "Default Name "
-local line = {"NR","NAAM","CLUB_ID","CAT_ID"}
-local racer_list = {line}
+local r_line = {"NR","NAAM","CLUB_ID","CAT_ID"}
+local racer_list = {r_line}
 local previous_pic = {}
 local last_pic  = 1 
 previous_pic[1] =  resource.create_colored_texture(0,1,1,1)
@@ -166,7 +166,7 @@ function node.render()
     end
     -- draw preview mask 
     black:draw(980, 0, 1190, HEIGHT, 1)
-    black:draw(1575, 0, 1920, HEIGHT, 0.8)
+    black:draw(1575, 0, 1920, HEIGHT, 1)
     -- old info for debuging 
     -- text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
     -- text_renner(HEIGHT-200, ren_nr_state, 50, 1,1,1,1)
@@ -187,10 +187,10 @@ function node.render()
             text_center(mid, "Taking Picture", size/2, 0,0,0,1)
         end
         -- Progress Slider
-        local progress = WIDTH/2 - WIDTH/2 / countdown * remaining
-        black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
-        white:draw(0, mid-size/2, progress, mid+size/2, 0.2)
-        white:draw(WIDTH, mid-size/2, WIDTH-progress, mid+size/2, 0.2)
+        local progress = 460 - 460 / countdown * remaining
+        --black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
+        white:draw(1000, 1500, 1000+progress, 1600, 0.5)
+        white:draw(WIDTH, 1500, WIDTH-progress, 1600, 0.5)
         -- text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
 --    elseif mode == "collage" then
 --        local w = WIDTH/2
