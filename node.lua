@@ -50,7 +50,7 @@ local countdown, countdown_end, pic_num
 local pictures
 
 local function load_csv(my_csv_file)
-   local my_csv = resource.load_file(localized(my_csv_file))
+   local my_csv = resource.load_file(my_csv_file)
    local lines = {}
    for line in my_csv:gmatch("[^\n]+") do
       line=trim(line)
