@@ -50,7 +50,7 @@ def photo_mode():
 #    target = config.order[pic_num-1]
     args =  "raspistill "
     args = args + "-o " + "picture_in.jpg " 
-#    args = args + "-rot 90 "
+    args = args + "-rot 90 "
     args = args + "-hf "
     args = args + "-p " + "%d,%d,%d,%d" % (1000,0,770,1024) + " "
     args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
