@@ -85,7 +85,17 @@ def photo_mode():
             node.write_file('dynamic.png', r.raw.read())
         except Exception as err:
             traceback.print_exc()
-
+    if config.upload_url:
+        try:
+            r = requests.post(
+                url = config.upload_url,
+                files = {
+                    'file': open('picture_in.jpg', 'rb')
+                },
+                data = {'nr': 'R98'},
+                stream = True,
+            )
+            r.raise_for_status()
 #    time.sleep(config.collage_time)
 #    for pic_num in range(1, 5):
 #    os.unlink("picture1.jpg")
