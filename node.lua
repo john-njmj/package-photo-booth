@@ -72,7 +72,7 @@ end
 local function find_renner(nr)
     local name 
     if racer_list ~= {} then 
-        name = racer_list[1][2]
+        name = racer_list[1][2] .. racer_list[1][1]
         --    name = "Niet gevonden - " .. nr
     else
         name = "Geen Lijst"
@@ -166,7 +166,7 @@ function node.render()
     end
     -- draw preview mask 
     black:draw(980, 0, 1190, HEIGHT, 1)
-    black:draw(1550, 0, 1920, HEIGHT, 0.8)
+    black:draw(1575, 0, 1920, HEIGHT, 0.8)
     -- old info for debuging 
     -- text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
     -- text_renner(HEIGHT-200, ren_nr_state, 50, 1,1,1,1)
