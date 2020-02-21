@@ -54,6 +54,7 @@ local function load_csv(my_csv_file)
    local lines = {}
    for line in my_csv:gmatch("[^\n]+") do
       line=trim(line)
+      print line
       local items={}
       for item in line:gmatch("[^,]+") do
          items[#items+1] = trim(item)
@@ -131,6 +132,7 @@ node.event("content_update", function(filename, file)
         last_pic = next_pic(last_pic)    
         previous_pic[last_pic] = resource.load_image(file)
     elseif filename == "renner_all.csv" then 
+        print 'LOAD CSV'    
         racer_list = load_csv(filename)    
     end
 end)
@@ -189,8 +191,8 @@ function node.render()
         -- Progress Slider
         local progress = 460 - 460 / countdown * remaining
         --black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
-        white:draw(1000, 1500, 1000+progress, 1600, 0.5)
-        white:draw(WIDTH, 1500, WIDTH-progress, 1600, 0.5)
+        white:draw(1000, 1500, 1000 + progress, 1600, 1)
+        white:draw(WIDTH, 1500, WIDTH - progress, 1600, 1)
         -- text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
 --    elseif mode == "collage" then
 --        local w = WIDTH/2
