@@ -66,9 +66,10 @@ def photo_mode():
     capture.wait()
     img = Image.open('picture_in.jpg')
     print >>sys.stderr, '/pic_size:%d,%d' % (img.size)
-    #img = img.crop((86,0,1451,2048))
+    img = img.crop((648,0,1943,1944))
     img = img.transpose(Image.FLIP_LEFT_RIGHT)
-    img.save('picture.jpg')
+    img = img.resize((1365, 2048), Image.ANTIALIAS)
+    img.save('picture.jpg','JPEG', quality=90)
     node.send('/collage:')
     if config.upload_url:
         try:
