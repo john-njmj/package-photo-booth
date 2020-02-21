@@ -164,6 +164,9 @@ function node.render()
     if previous_pic[next_pic(next_pic(last_pic))] then
            previous_pic[next_pic(next_pic(last_pic))]:draw(85, 715, 275, 1000)
     end
+    -- draw preview mask 
+    black:draw(1000, 0, 1100, HEIGHT, 0.4)
+    black:draw(1400, 0, 1500, HEIGHT, 0.4)
     -- old info for debuging 
     -- text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
     -- text_renner(HEIGHT-200, ren_nr_state, 50, 1,1,1,1)
