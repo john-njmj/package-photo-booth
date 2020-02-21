@@ -146,23 +146,23 @@ function node.render()
     -- part that that we want to display in all modes
     gl.clear(1, 1, 1, 0)
     -- Title 
-    t_font:write(50, 50, t_text, 75, 1,1,1,1)
+    t_font:write(75, 50, t_text, 75, 1,1,1,1)
     -- Renner info 
-    d_font:write(60, 125, racer_text, 30 ,1,1,1,1)
-    d_font:write(150,125, racer_nr, 60 ,1,1,1,1)
-    d_font:write(60,200, racer_name, 30 ,1,1,1,1)
+    d_font:write(85, 125, racer_text, 30 ,1,1,1,1)
+    d_font:write(175,125, racer_nr, 60 ,1,1,1,1)
+    d_font:write(85,200, racer_name, 30 ,1,1,1,1)
     -- Vorige 
-    d_font:write(50,300, previous_text, 30 ,1,1,1,1)
+    d_font:write(75,300, previous_text, 30 ,1,1,1,1)
     -- draw last picture 
     if previous_pic[last_pic] then
-           previous_pic[last_pic]:draw(300, 400, 700, 1000)
+           previous_pic[last_pic]:draw(325, 400, 725, 1000)
     end
     -- draw pic before last picture 
     if previous_pic[next_pic(last_pic)] then
-           previous_pic[next_pic(last_pic)]:draw(60, 400, 250, 685)
+           previous_pic[next_pic(last_pic)]:draw(85, 400, 275, 685)
     end
     if previous_pic[next_pic(next_pic(last_pic))] then
-           previous_pic[next_pic(next_pic(last_pic))]:draw(60, 715, 250, 1000)
+           previous_pic[next_pic(next_pic(last_pic))]:draw(85, 715, 275, 1000)
     end
     -- old info for debuging 
     -- text_renner(HEIGHT-50, ren_nr, 50, 1,1,1,1)
