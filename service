@@ -55,8 +55,8 @@ def photo_mode():
     args = args + "-p " + "%d,%d,%d,%d" % (1000,0,770,1024) + " "
     args = args + "-t " + str(countdown * 1000)+ " " # timeout in ms
     args = args + "-fp " # fullscreen preview
-    args = args + "-w " + str(1538) + " "
-    args = args + "-h " + str(2048) + " "
+#    args = args + "-w " + str(1538) + " "
+#    args = args + "-h " + str(2048) + " "
     args = args + "-v"
     print >>sys.stderr, args
     cmd_args = shlex.split(args)
