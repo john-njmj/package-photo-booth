@@ -74,10 +74,17 @@ end
 
 local function find_renner(nr)
     local name 
+    local count
+    local my_item
     if racer_list ~= {} then 
-        name = racer_list[1][2] .. racer_list[1][1]
-        --    name = "Niet gevonden - " .. nr
-    else
+        name = 'Niet gevonden'
+        for count = 1, #racer_list do 
+            my_item = recer_list[count]
+            if my_item[1] == nr then 
+                  name = my_item[3]
+            end  
+        end 
+   else
         name = "Geen Lijst"
     end
     return name
