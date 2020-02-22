@@ -65,6 +65,7 @@ NR,CLUB_ID,name,CAT_ID
 606,RST,Brouwers Lucas,MJ
 607,ZRC,Maximiano Correia Romeo,MJ
 608,RRZ,Vermont Klaas,MJ
+680,RRF,Hollant Eva,MM
 690,ZRC,Dejonghe Alana,MM
 691,ZRC,Van Peteghem Nayeli,MM
 692,ZRC,Vermeire Elyne,MM
@@ -75,6 +76,7 @@ NR,CLUB_ID,name,CAT_ID
 697,KRV,Bartholomeeussen Ellie,MM
 698,ZRC,Van De Velde Annelies,MM
 699,ZRC,Proot Jinthe,MM
+970,WIS,Barker Kirby,PJ
 588,ZRC,Duerinck Lewie,PJ
 589,STE,D'Oosterlinck Lowie,PJ
 590,STE,De Weweire Briek,PJ
@@ -105,6 +107,31 @@ NR,CLUB_ID,name,CAT_ID
 516,ZRC,Van Peteghem Yara,PM
 517,ZRC,Piolon Aiko,PM
 518,ZRC,Deblauwe Mina,PM
+525,RRF,Hollant Elina,PM
+926,WIS,Barker Leah,PM
+R11,SCH,Alderweireldt Ivo,RM
+R12,SCH,Alderweireldt Gino,RM
+R13,SCH,Bisschops Marc,RM
+R14,SCH,Devos Eric,RM
+R15,SCH,Devriendt Marc,RM
+R16,SCH,Keuleers Walter,RM
+R17,SCH,Mori Crt,RM
+R18,SCH,Nowkens Kristel,RM
+R19,SCH,Van Gompel Hans,RM
+R20,SCH,Binst Kris,RM
+R21,SCH,Hernalsteen Katrien,RM
+R22,SCH,Hoelbeek Martin,RM
+R23,SCH,Houthuys Cindy,RM
+R24,SCH,Verbist Shanna,RM
+R25,SCH,Vereecke Jess,RM
+R30,MED,Dereu Geert,RM
+R31,MED,Rogiers Henk,RM
+R32,MED,Rode Kruis,RM
+R33,MED,Rode Kruis,RM
+R34,MED,Rode Kruis,RM
+R35,MED,Rode Kruis,RM
+R98,STE,De Schamphelaere Jobbe,RM
+R99,STE,De Schapmphelaere John,RM
 002,RRZ,Vanes Femke,SD
 003,RRZ,Bisschops Emely,SD
 004,RRZ,Houben Lotte,SD
@@ -190,6 +217,10 @@ NR,CLUB_ID,name,CAT_ID
 415,ZRC,Deblauwe Leon,SJ
 416,ZRC,Parmentier Mats,SJ
 417,ZRC,Lanckriet Mika,SJ
+923,WIS,Buckler Arthur,SJ
+922,WIS,Barker Taylor,SJ
+974,NLR,Wordsworth Keira,SM
+975,SWF,Debenham Sophie,SM
 483,ZRC,Vandersteene Jade,SM
 484,ZRC,Verriest Bente,SM
 485,RST,Ignoul Amelie,SM
@@ -207,26 +238,3 @@ NR,CLUB_ID,name,CAT_ID
 497,RRZ,Leyers Noor,SM
 498,RRZ,Haemels Lotte,SM
 499,RRZ,Dumon Celeste,SM
-R99,STE,De Schapmphelaere John,RM
-R98,STE,De Schamphelaere Jobbe,RM
-R11,SCH,Alderweireldt Ivo,RM
-R12,SCH,Alderweireldt Gino,RM
-R13,SCH,Bisschops Marc,RM
-R14,SCH,Devos Eric,RM
-R15,SCH,Devriendt Marc,RM
-R16,SCH,Keuleers Walter,RM
-R17,SCH,Mori Crt,RM
-R18,SCH,Nowkens Kristel,RM
-R19,SCH,Van Gompel Hans,RM
-R20,SCH,Binst Kris,RM
-R21,SCH,Hernalsteen Katrien,RM
-R22,SCH,Hoelbeek Martin,RM
-R23,SCH,Houthuys Cindy,RM
-R24,SCH,Verbist Shanna,RM
-R25,SCH,Vereecke Jess,RM
-R30,MED,Derue Geert,RM
-R31,MED,Rogiers Henk,RM
-R32,MED,Rode Kruis,RM
-R33,MED,Rode Kruis,RM
-R34,MED,Rode Kruis,RM
-R35,MED,Rode Kruis,RM
