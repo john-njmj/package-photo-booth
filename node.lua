@@ -199,7 +199,7 @@ function node.render()
         --end
         -- Progress Slider
         local progress = 400 / (countdown * remaining)
-        if progress < 0 then
+        if progress > 0 then
            white:draw(1000, 900, 1000 + progress, 1000, 1)
            white:draw(1800 - progress , 900, 1800 , 1000, 1)
            d_font:write(1000,850, string.format("%d", progress), 30 ,1,1,1,1)     
