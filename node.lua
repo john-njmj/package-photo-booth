@@ -24,7 +24,7 @@ local mode = "wait"
 -- local ren_nr_naam = "none"
 local playlist = {}
 
-function trim(s)
+local function trim(s)
    return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
