@@ -201,7 +201,8 @@ function node.render()
         local progress = 460 - (460 / (countdown * remaining))
         --black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
         white:draw(1000, 900, 1000 + progress, 1000, 1)
-        white:draw(WIDTH, 900, WIDTH - progress, 1000, 1)
+        white:draw(WIDTH - progress , 900, WIDTH , 1000, 1)
+        d_font:write(1000,850, string.format("%d", progress), 30 ,1,1,1,1)     
         -- text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
 --    elseif mode == "collage" then
 --        local w = WIDTH/2
