@@ -198,10 +198,13 @@ function node.render()
         --    text_center(mid, "Taking Picture", size/2, 0,0,0,1)
         --end
         -- Progress Slider
-        local progress = 460 / (countdown * remaining)
+        local progress = 400 / (countdown * remaining)
+        if progress < 0 then
+           progress = 0
+        end
         --black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
         white:draw(1000, 900, 1000 + progress, 1000, 1)
-        white:draw(WIDTH - progress , 900, WIDTH , 1000, 1)
+        white:draw(1800 - progress , 900, 1800 , 1000, 1)
         d_font:write(1000,850, string.format("%d", progress), 30 ,1,1,1,1)     
         -- text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
 --    elseif mode == "collage" then
