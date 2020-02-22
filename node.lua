@@ -200,8 +200,8 @@ function node.render()
         -- Progress Slider
         local progress = 460 - (460 / (countdown * remaining))
         --black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
-        white:draw(1000, 1500, 1000 + progress, 1600, 1)
-        white:draw(WIDTH, 1500, WIDTH - progress, 1600, 1)
+        white:draw(1000, 900, 1000 + progress, 1000, 1)
+        white:draw(WIDTH, 900, WIDTH - progress, 1000, 1)
         -- text_renner(HEIGHT, string.format("%d", ren_nr), size, 1,1,1,1)
 --    elseif mode == "collage" then
 --        local w = WIDTH/2
