@@ -198,7 +198,7 @@ function node.render()
         --    text_center(mid, "Taking Picture", size/2, 0,0,0,1)
         --end
         -- Progress Slider
-        local progress = 400 / (countdown * remaining)
+        local progress = 400 / math.ceil(countdown * remaining)
         if progress > 0 then
            white:draw(1000, 900, 1000 + progress, 1000, 1)
            white:draw(1800 - progress , 900, 1800 , 1000, 1)
