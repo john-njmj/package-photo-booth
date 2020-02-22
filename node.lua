@@ -18,7 +18,8 @@ local last_pic  = 1
 previous_pic[1] =  resource.create_colored_texture(0,1,1,1)
 previous_pic[2] =  resource.create_colored_texture(1,0,1,1)
 previous_pic[3] =  resource.create_colored_texture(1,1,0,1)
-
+print ('Load list by Default')    
+racer_list = load_csv("renner_all.csv")    
 local dynamic
 
 local mode = "wait"
@@ -183,13 +184,14 @@ function node.render()
         -- Info Text
         local size = math.ceil(HEIGHT/10)
         local mid = HEIGHT/2
-        if remaining > 0 then
+        --if remaining > 0 then
             -- text_center(mid, string.format("%.2f", remaining), size/2, 1,1,1,1)
-        else
-            text_center(mid, "Taking Picture", size/2, 0,0,0,1)
-        end
+        --else
+        --    text_center(mid, "Taking Picture", size/2, 0,0,0,1)
+        --end
         -- Progress Slider
         local progress = 460 - 460 / countdown * remaining
+        print (progress)
         --black:draw(0, mid-size/2, WIDTH, mid+size/2, 0.1)
         white:draw(1000, 1500, 1000 + progress, 1600, 1)
         white:draw(WIDTH, 1500, WIDTH - progress, 1600, 1)
