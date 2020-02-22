@@ -135,9 +135,7 @@ end
 
 -- Handle loading/unloading of dynamic server response
 node.event("content_update", function(filename, file)
-    if filename == "dynamic.png" then
-        dynamic = resource.load_image(file)
-    elseif filename == "picture.jpg" then
+    if filename == "picture.jpg" then
         last_pic = next_pic(last_pic)    
         previous_pic[last_pic] = resource.load_image(file)
     elseif filename == "renner_all.csv" then 
