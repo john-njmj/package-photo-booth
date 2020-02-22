@@ -18,9 +18,6 @@ local last_pic  = 1
 previous_pic[1] =  resource.create_colored_texture(0,1,1,1)
 previous_pic[2] =  resource.create_colored_texture(1,0,1,1)
 previous_pic[3] =  resource.create_colored_texture(1,1,0,1)
-print ('Load list by Default')    
-racer_list = load_csv("renner_all.csv")    
-local dynamic
 
 local mode = "wait"
 -- local ren_nr = "0"
@@ -144,7 +141,9 @@ node.event("content_remove", function(filename)
         dynamic = nil
     end
 end)
-
+print ('Load list by Default')    
+racer_list = load_csv("renner_all.csv")    
+local dynamic
 function node.render()
     -- part that that we want to display in all modes
     gl.clear(1, 1, 1, 0)
